@@ -19,183 +19,338 @@
         src: url('../fonts/jetbrains-mono-var.woff2') format('woff2');
     }
 
+    :root {
+        --bg: #0e0e0c;
+        --bg-sheet: #141411;
+        --bg-inset: #0b0b09;
+        --grid-dot: rgba(238, 237, 232, 0.11);
+
+        --ink: #eeede8;
+        --ink-secondary: #bbb8ae;
+        --ink-muted: #9c988e;
+
+        --line: rgba(238, 237, 232, 0.16);
+        --line-strong: rgba(238, 237, 232, 0.34);
+        --tick: rgba(238, 237, 232, 0.54);
+
+        --accent: rgb(240, 106, 60);
+        --accent-ink: #f4865e;
+        --accent-tint: rgba(240, 106, 60, 0.10);
+
+        --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+        --font-sans: 'Inter', system-ui, sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
+    html, body {
         width: 1200px;
         height: 630px;
-        background: #050507;
-        font-family: 'Inter', system-ui, sans-serif;
-        color: #f5f6fa;
         overflow: hidden;
+    }
+
+    body {
+        background-color: var(--bg);
+        background-image: radial-gradient(circle, var(--grid-dot) 1px, transparent 1px);
+        background-size: 24px 24px;
+        font-family: var(--font-sans);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        padding: 36px 40px;
+    }
+
+    .sheet {
         position: relative;
-    }
-
-    /* Same accent ramp the site uses, bled in from the corners. */
-    .glow-a, .glow-b {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-    }
-    .glow-a {
-        width: 620px; height: 620px;
-        top: -240px; right: -140px;
-        background: rgba(99, 102, 241, 0.40);
-    }
-    .glow-b {
-        width: 520px; height: 520px;
-        bottom: -260px; left: -120px;
-        background: rgba(168, 85, 247, 0.30);
-    }
-
-    /* The hero's retrieval motif, frozen at the moment of a hit. */
-    svg.field { position: absolute; inset: 0; width: 1200px; height: 630px; }
-
-    .frame {
-        position: absolute;
-        inset: 0;
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        margin: 22px;
-        border-radius: 20px;
-    }
-
-    .content {
-        position: relative;
-        height: 100%;
-        padding: 82px 86px;
+        width: 1120px;
+        height: 558px;
+        background: var(--bg-sheet);
+        border: 1px solid var(--line-strong);
         display: flex;
         flex-direction: column;
-        justify-content: center;
     }
 
-    .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        align-self: flex-start;
-        padding: 9px 18px;
-        border: 1px solid rgba(129, 140, 248, 0.38);
-        border-radius: 999px;
-        background: rgba(99, 102, 241, 0.11);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 15px;
-        font-weight: 500;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: #c7d2fe;
+    .sheet::before,
+    .sheet::after {
+        content: '+';
+        position: absolute;
+        font-family: var(--font-mono);
+        font-size: 14px;
+        line-height: 1;
+        color: var(--tick);
     }
-    .dot {
-        width: 8px; height: 8px;
-        border-radius: 50%;
-        background: #4ade80;
-        box-shadow: 0 0 12px #4ade80;
+    .sheet::before { top: -8px; left: -5px; }
+    .sheet::after { bottom: -8px; right: -5px; }
+
+    .main-split {
+        flex: 1;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 616px 1fr;
+    }
+
+    .copy-col {
+        padding: 42px 44px 36px 48px;
+        border-right: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .fig-kicker {
+        font-family: var(--font-mono);
+        font-size: 16px;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-ink);
+    }
+
+    .headline-block {
+        display: flex;
+        flex-direction: column;
     }
 
     h1 {
-        margin-top: 30px;
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 92px;
+        font-family: var(--font-display);
+        font-size: 70px;
         font-weight: 700;
         line-height: 0.98;
-        letter-spacing: -0.035em;
-        background: linear-gradient(115deg, #a5b4fc 0%, #818cf8 38%, #c084fc 72%, #f472b6 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.03em;
+        color: var(--ink);
     }
 
-    h2 {
-        margin-top: 26px;
-        font-size: 35px;
-        font-weight: 600;
-        letter-spacing: -0.015em;
-        color: #e6e8f0;
+    .role {
+        margin-top: 22px;
+        font-family: var(--font-mono);
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.3;
+        color: var(--ink);
     }
 
-    p {
-        margin-top: 18px;
-        font-size: 22px;
+    .summary {
+        margin-top: 20px;
+        font-size: 21px;
         font-weight: 400;
         line-height: 1.5;
-        color: #9ba1b4;
-        max-width: 700px;
+        color: var(--ink-secondary);
+        max-width: 510px;
     }
 
-    .meta {
-        margin-top: 40px;
+    .diagram-col {
+        background: var(--bg-inset);
+        padding: 20px 26px 20px 26px;
         display: flex;
-        align-items: center;
-        gap: 16px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 19px;
-        color: #6f7689;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .sep { color: #3a3f52; }
-    .site { color: #a5b4fc; font-weight: 500; }
 
-    .mark {
-        position: absolute;
-        top: 74px; right: 86px;
-        width: 92px; height: 92px;
-        border-radius: 22px;
-        background: linear-gradient(135deg, #6366f1, #a855f7);
+    .diagram-bar {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .diagram-fig {
+        color: var(--accent-ink);
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .diagram-title {
+        color: var(--ink-muted);
+        font-weight: 500;
+    }
+
+    .arch-svg {
+        width: 450px;
+        height: 416px;
+        display: block;
+    }
+
+    .svg-box {
+        fill: var(--bg-sheet);
+        stroke: var(--line-strong);
+        stroke-width: 1;
+    }
+    .svg-box-accent {
+        fill: var(--accent-tint);
+        stroke: var(--accent);
+        stroke-width: 1;
+    }
+    .svg-chip {
+        fill: var(--bg-inset);
+        stroke: var(--line-strong);
+        stroke-width: 1;
+    }
+    .svg-wire {
+        fill: none;
+        stroke: var(--line-strong);
+        stroke-width: 1;
+        stroke-linecap: square;
+    }
+    .svg-wire-accent {
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 1;
+        stroke-linecap: square;
+    }
+    .svg-wire-loop {
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 1;
+        stroke-dasharray: 4 4;
+    }
+    .svg-arrow { fill: var(--line-strong); }
+    .svg-arrow-accent { fill: var(--accent); }
+
+    .svg-idx {
+        font-family: var(--font-mono);
+        font-size: 18px;
+        font-weight: 600;
+        fill: var(--accent-ink);
+    }
+    .svg-label {
+        font-family: var(--font-mono);
+        font-size: 18px;
+        font-weight: 600;
+        fill: var(--ink);
+    }
+    .svg-agent {
+        font-family: var(--font-sans);
+        font-size: 18px;
+        font-weight: 600;
+        fill: var(--ink);
+    }
+    .svg-sub {
+        font-family: var(--font-sans);
+        font-size: 18px;
+        font-weight: 400;
+        fill: var(--ink-secondary);
+    }
+    .svg-tag {
+        font-family: var(--font-mono);
+        font-size: 18px;
+        font-weight: 400;
+        fill: var(--ink-muted);
+    }
+
+    .sheet-foot {
+        height: 60px;
+        flex-shrink: 0;
+        border-top: 1px solid var(--line);
+        background: var(--bg-inset);
+        padding: 0 48px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 40px;
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: -0.02em;
-        box-shadow: 0 18px 50px rgba(99, 102, 241, 0.42);
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 18px;
+    }
+
+    .foot-loc {
+        color: var(--ink-secondary);
+    }
+
+    .foot-domain {
+        color: var(--ink);
+        font-weight: 600;
     }
 </style>
 </head>
 <body>
-    <div class="glow-a"></div>
-    <div class="glow-b"></div>
+    <div class="sheet">
+        <div class="main-split">
+            <div class="copy-col">
+                <div class="fig-kicker">FIG 00 &middot; PORTFOLIO</div>
+                <div class="headline-block">
+                    <h1>Constantino<br>Ferrucci</h1>
+                    <p class="role">Senior GenAI Engineer</p>
+                    <p class="summary">RAG and agent systems &middot; LangGraph &middot; MCP &middot; Computer Vision at UNR</p>
+                </div>
+            </div>
 
-    <svg class="field" aria-hidden="true">
-        <g stroke="rgba(129,140,248,0.55)" stroke-width="1.1">
-            <line x1="1012" y1="474" x2="946" y2="404"/>
-            <line x1="1012" y1="474" x2="1084" y2="418"/>
-            <line x1="1012" y1="474" x2="962" y2="546"/>
-            <line x1="1012" y1="474" x2="1098" y2="536"/>
-            <line x1="1012" y1="474" x2="906" y2="498"/>
-        </g>
-        <g fill="rgba(165,180,252,0.92)">
-            <circle cx="946" cy="404" r="4.2"/>
-            <circle cx="1084" cy="418" r="4.2"/>
-            <circle cx="962" cy="546" r="4.2"/>
-            <circle cx="1098" cy="536" r="4.2"/>
-            <circle cx="906" cy="498" r="4.2"/>
-        </g>
-        <circle cx="1012" cy="474" r="8" fill="#c084fc"/>
-        <circle cx="1012" cy="474" r="34" fill="none" stroke="rgba(192,132,252,0.35)" stroke-width="1.2"/>
-        <circle cx="1012" cy="474" r="62" fill="none" stroke="rgba(192,132,252,0.16)" stroke-width="1.2"/>
-        <g fill="rgba(148,163,214,0.30)">
-            <circle cx="856" cy="386" r="3"/>
-            <circle cx="1140" cy="470" r="3"/>
-            <circle cx="880" cy="596" r="3"/>
-            <circle cx="1052" cy="352" r="3"/>
-            <circle cx="812" cy="536" r="3"/>
-        </g>
-    </svg>
+            <div class="diagram-col">
+                <div class="diagram-bar">
+                    <span class="diagram-fig">FIG 01</span>
+                    <span class="diagram-title">Agent Architecture</span>
+                </div>
 
-    <div class="frame"></div>
+                <svg class="arch-svg" viewBox="0 0 450 416" width="450" height="416" aria-hidden="true">
+                    <rect x="0.5" y="0.5" width="449" height="415" fill="none" stroke="var(--line)" stroke-width="1"/>
 
-    <div class="content">
-        <div class="badge"><span class="dot"></span>Open to international roles</div>
-        <h1>Constantino<br>Ferrucci</h1>
-        <h2>Senior Generative AI Engineer</h2>
-        <p>Enterprise RAG architecture, retrieval quality, and the backend engineering that gets LLM systems into production.</p>
-        <div class="meta">
-            <span>Montevideo, UY</span>
-            <span class="sep">/</span>
-            <span class="site">constantinoferrucci.com.ar</span>
+                    <!-- Supervisor fan-out to 3 agents -->
+                    <path class="svg-wire-accent" d="M225 106 L225 130 L86 130 L86 152"/>
+                    <path class="svg-wire" d="M225 130 L225 152"/>
+                    <path class="svg-wire" d="M225 130 L364 130 L364 152"/>
+                    <polygon class="svg-arrow-accent" points="86,154 81,146 91,146"/>
+                    <polygon class="svg-arrow" points="225,154 220,146 230,146"/>
+                    <polygon class="svg-arrow" points="364,154 359,146 369,146"/>
+
+                    <!-- Bidirectional wires: Agents <-> MCP tool layer -->
+                    <path class="svg-wire" d="M86 250 L86 292"/>
+                    <polygon class="svg-arrow" points="86,248 81,256 91,256"/>
+                    <polygon class="svg-arrow" points="86,294 81,286 91,286"/>
+
+                    <path class="svg-wire" d="M225 250 L225 292"/>
+                    <polygon class="svg-arrow" points="225,248 220,256 230,256"/>
+                    <polygon class="svg-arrow" points="225,294 220,286 230,286"/>
+
+                    <path class="svg-wire" d="M364 250 L364 292"/>
+                    <polygon class="svg-arrow" points="364,248 359,256 369,256"/>
+                    <polygon class="svg-arrow" points="364,294 359,286 369,286"/>
+
+                    <!-- Subtle dashed feedback rail: Agents -> Supervisor -->
+                    <path class="svg-wire-loop" d="M426 202 L439 202 L439 64 L428 64"/>
+                    <polygon class="svg-arrow-accent" points="426,64 434,59 434,69"/>
+
+                    <!-- 01 Supervisor (key node) -->
+                    <rect class="svg-box-accent" x="24" y="22" width="402" height="84"/>
+                    <line x1="24" y1="58" x2="426" y2="58" stroke="var(--accent)" stroke-width="1" stroke-opacity="0.45"/>
+                    <text class="svg-idx" x="38" y="47">01</text>
+                    <text class="svg-label" x="72" y="47">Supervisor</text>
+                    <text class="svg-tag" x="412" y="47" text-anchor="end">LangGraph</text>
+                    <text class="svg-sub" x="38" y="88">Plans steps and routes work</text>
+
+                    <!-- 02a Retrieval agent -->
+                    <rect class="svg-box" x="24" y="154" width="124" height="94"/>
+                    <line x1="24" y1="190" x2="148" y2="190" stroke="var(--line)" stroke-width="1"/>
+                    <text class="svg-idx" x="86" y="179" text-anchor="middle">02a</text>
+                    <text class="svg-agent" x="86" y="226" text-anchor="middle">Retrieval</text>
+
+                    <!-- 02b Data agent -->
+                    <rect class="svg-box" x="163" y="154" width="124" height="94"/>
+                    <line x1="163" y1="190" x2="287" y2="190" stroke="var(--line)" stroke-width="1"/>
+                    <text class="svg-idx" x="225" y="179" text-anchor="middle">02b</text>
+                    <text class="svg-agent" x="225" y="226" text-anchor="middle">Data / SQL</text>
+
+                    <!-- 02c Tool agent -->
+                    <rect class="svg-box" x="302" y="154" width="124" height="94"/>
+                    <line x1="302" y1="190" x2="426" y2="190" stroke="var(--line)" stroke-width="1"/>
+                    <text class="svg-idx" x="364" y="179" text-anchor="middle">02c</text>
+                    <text class="svg-agent" x="364" y="226" text-anchor="middle">Tools</text>
+
+                    <!-- MCP tool layer band -->
+                    <rect class="svg-box" x="24" y="294" width="402" height="100"/>
+                    <text class="svg-label" x="38" y="326">MCP tool layer</text>
+                    <rect class="svg-chip" x="38" y="342" width="180" height="38"/>
+                    <text class="svg-sub" x="128" y="367" text-anchor="middle">FastMCP</text>
+                    <rect class="svg-chip" x="230" y="342" width="182" height="38"/>
+                    <text class="svg-sub" x="321" y="367" text-anchor="middle">REST &harr; MCP</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="sheet-foot">
+            <span class="foot-loc">Montevideo, Uruguay</span>
+            <span class="foot-domain">constantinoferrucci.com.ar</span>
         </div>
     </div>
-
-    <div class="mark">CF</div>
 </body>
 </html>
