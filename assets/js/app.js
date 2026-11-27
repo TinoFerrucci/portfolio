@@ -17,7 +17,7 @@ function withViewTransition(mutate) {
 // because switching back to EN needs the strings too.
 const I18N = {
     en: {
-        'nav.home': 'Home', 'nav.chat': 'Chat', 'nav.about': 'About', 'nav.skills': 'Skills',
+        'nav.home': 'Home', 'nav.chat': 'Assistant', 'nav.about': 'About', 'nav.skills': 'Stack',
         'nav.exp': 'Experience', 'nav.projects': 'Projects', 'nav.contact': 'Contact',
         'nav.lang': 'Cambiar a español', 'nav.langShort': 'ES',
         'nav.themeLight': 'Switch to light theme', 'nav.themeDark': 'Switch to dark theme',
@@ -90,7 +90,7 @@ const I18N = {
         'about.p1': "I'm <strong>Constantino Ferrucci</strong>, a Generative AI engineer based in <strong>Montevideo, Uruguay</strong>. I design, deploy and optimize production-grade GenAI systems &mdash; the kind that have to keep answering correctly on a Tuesday afternoon, not just in a demo.",
         'about.p2': "I'm currently a <strong>Senior GenAI Engineer (contractor via Tata Consultancy Services) working with Apple</strong>, architecting end-to-end systems that connect large language models to structured and unstructured data sources, enterprise platforms and service-oriented backends &mdash; including agent-based workflows built on LangChain, LangGraph and MCP.",
         'about.p3': 'In parallel I teach as an <strong>Auxiliar de Primera in Computer Vision at the Universidad Nacional de Rosario</strong>, where I also taught NLP. Before that I spent three years at <strong>Wiener lab.</strong> building AI systems for clinical laboratory workflows &mdash; document computer vision, data pipelines and internal assistants.',
-        'about.p4': 'Before software I completed a secondary technical degree in electromechanics; since 2022 I have worked full-time in AI engineering.',
+        'about.p4': 'Before software I completed a secondary technical degree in electromechanics; since 2022 I\'ve worked full-time in AI engineering.',
         'about.s1': 'Years in AI engineering', 'about.s2': 'UNR courses taught',
         'about.s3': 'Worked across', 'about.s4': 'Professional working',
 
@@ -162,7 +162,7 @@ const I18N = {
     },
 
     es: {
-        'nav.home': 'Inicio', 'nav.chat': 'Chat', 'nav.about': 'Sobre mí', 'nav.skills': 'Skills',
+        'nav.home': 'Inicio', 'nav.chat': 'Asistente', 'nav.about': 'Sobre mí', 'nav.skills': 'Tecnologías',
         'nav.exp': 'Experiencia', 'nav.projects': 'Proyectos', 'nav.contact': 'Contacto',
         'nav.lang': 'Switch to English', 'nav.langShort': 'EN',
         'nav.themeLight': 'Cambiar a tema claro', 'nav.themeDark': 'Cambiar a tema oscuro',
