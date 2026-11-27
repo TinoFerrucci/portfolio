@@ -26,8 +26,10 @@ const I18N = {
         'hero.sub': 'I build Generative AI systems that survive production &mdash; enterprise RAG architecture, retrieval quality, and the backend engineering that holds it all together.',
         'hero.ctaChat': 'Ask my assistant',
         'hero.ctaCv': 'Download CV',
-        'hero.floatVia': 'Contractor via TCS',
-        'hero.floatUnr': 'Instructor',
+        'hero.title': 'Senior GenAI Engineer. Production RAG &amp; LLM systems.',
+        'hero.nowLabel': 'Currently', 'hero.now': 'Apple <span>contractor via TCS</span>',
+        'hero.teachLabel': 'Teaching', 'hero.teach': 'UNR <span>Computer Vision instructor</span>',
+        'hero.baseLabel': 'Based in', 'hero.statusLabel': 'Status',
 
         'sk.retrieval': 'Retrieval', 'sk.orch': 'Orchestration',
         'sk.rel': 'Reliability &amp; evaluation', 'sk.serving': 'Models &amp; serving',
@@ -169,8 +171,10 @@ const I18N = {
         'hero.sub': 'Construyo sistemas de IA generativa que sobreviven a producción: arquitectura RAG empresarial, calidad de recuperación y la ingeniería de backend que sostiene todo eso.',
         'hero.ctaChat': 'Preguntale a mi asistente',
         'hero.ctaCv': 'Descargar CV',
-        'hero.floatVia': 'Contractor vía TCS',
-        'hero.floatUnr': 'Instructor',
+        'hero.title': 'Senior GenAI Engineer. Sistemas RAG y LLM en producción.',
+        'hero.nowLabel': 'Actualmente', 'hero.now': 'Apple <span>contractor vía TCS</span>',
+        'hero.teachLabel': 'Docencia', 'hero.teach': 'UNR <span>instructor de Visión Computacional</span>',
+        'hero.baseLabel': 'Ubicación', 'hero.statusLabel': 'Disponibilidad',
 
         'sk.retrieval': 'Recuperación', 'sk.orch': 'Orquestación',
         'sk.rel': 'Confiabilidad y evaluación', 'sk.serving': 'Modelos y serving',
@@ -303,11 +307,6 @@ const I18N = {
     }
 };
 
-const TYPING = {
-    en: ['Senior GenAI Engineer', 'Production RAG & LLM systems', 'Computer Vision instructor @ UNR', 'From experiment to production'],
-    es: ['Senior GenAI Engineer', 'Sistemas RAG y LLM en producción', 'Instructor de Visión Computacional @ UNR', 'Del experimento a producción']
-};
-
 let lang = 'en';
 
 function t(key) {
@@ -415,246 +414,6 @@ document.addEventListener('keydown', e => {
 });
 // Leaving the mobile breakpoint must not strand the page in the open state
 window.matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
-
-// ==================== HERO: RETRIEVAL IN EMBEDDING SPACE ====================
-// The hero draws the thing the rest of the page claims to do. Each point is a
-// chunk sitting in a vector space; every few seconds a query lands, the k
-// nearest light up and wire themselves to it, then everything settles back.
-// Still decorative, so it keeps the same discipline as any decorative layer:
-// skipped entirely under reduced motion, paused when the tab is hidden or the
-// hero has scrolled out of view.
-const canvas = document.getElementById('heroCanvas');
-const ctx = canvas.getContext('2d');
-
-const K_NEAREST = 6;
-const QUERY_PERIOD = 3400;      // ms between one query and the next
-const QUERY_LIFE = 2400;        // ms a single query stays on screen
-
-let nodes = [];
-let query = null;
-let mouse = { x: -1000, y: -1000 };
-let animFrame = null;
-let lastQueryAt = 0;
-let heroVisible = true;
-let accentRGB = '99,102,241';
-
-function readAccent() {
-    const v = getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim();
-    if (v) accentRGB = v;
-}
-
-function resizeCanvas() {
-    // Match the device pixel ratio so the dots are not blurry on retina screens
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.floor(window.innerWidth * dpr);
-    canvas.height = Math.floor(window.innerHeight * dpr);
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = window.innerHeight + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-
-class Chunk {
-    constructor() { this.reset(); }
-    reset() {
-        this.x = Math.random() * window.innerWidth;
-        this.y = Math.random() * window.innerHeight;
-        this.size = Math.random() * 1.5 + 0.6;
-        this.speedX = (Math.random() - 0.5) * 0.28;
-        this.speedY = (Math.random() - 0.5) * 0.28;
-        this.opacity = Math.random() * 0.45 + 0.12;
-        this.glow = 0;                              // 0..1 while this chunk is a hit
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const distSq = dx * dx + dy * dy;
-        if (distSq < 22500) {                       // 150px, compared without sqrt
-            const force = (150 - Math.sqrt(distSq)) / 150;
-            this.x -= dx * force * 0.02;
-            this.y -= dy * force * 0.02;
-        }
-        if (this.x < 0 || this.x > window.innerWidth) this.speedX *= -1;
-        if (this.y < 0 || this.y > window.innerHeight) this.speedY *= -1;
-        this.glow *= 0.94;                          // decay back to ambient
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * (1 + this.glow * 1.6), 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + accentRGB + ',' + Math.min(1, this.opacity + this.glow * 0.75) + ')';
-        ctx.fill();
-    }
-}
-
-function initNodes() {
-    // Fewer points on phones: the ambient link pass is O(n^2)
-    const cap = window.innerWidth < 640 ? 34 : 70;
-    const count = Math.min(cap, Math.floor(window.innerWidth * window.innerHeight / 18000));
-    nodes = [];
-    for (let i = 0; i < count; i++) nodes.push(new Chunk());
-    query = null;
-}
-
-function drawAmbientLinks() {
-    for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const distSq = dx * dx + dy * dy;
-            if (distSq < 14400) {                   // 120px
-                const dist = Math.sqrt(distSq);
-                ctx.beginPath();
-                ctx.moveTo(nodes[i].x, nodes[i].y);
-                ctx.lineTo(nodes[j].x, nodes[j].y);
-                ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (0.07 * (1 - dist / 120)) + ')';
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-        }
-    }
-}
-
-// A query is a point dropped into the space; its k nearest chunks are the hits.
-// Ranking once at spawn keeps the per-frame cost flat.
-function spawnQuery(now) {
-    if (nodes.length < K_NEAREST) return;
-    const x = window.innerWidth * (0.15 + Math.random() * 0.7);
-    const y = window.innerHeight * (0.15 + Math.random() * 0.7);
-    const hits = nodes
-        .map(n => ({ n, d: Math.hypot(n.x - x, n.y - y) }))
-        .sort((a, b) => a.d - b.d)
-        .slice(0, K_NEAREST);
-    query = { x, y, born: now, hits };
-}
-
-function drawQuery(now) {
-    if (!query) return;
-    const p = (now - query.born) / QUERY_LIFE;
-    if (p >= 1) { query = null; return; }
-
-    // Fade the whole event in and out so nothing pops on or off.
-    const envelope = p < 0.12 ? p / 0.12 : (p > 0.75 ? (1 - p) / 0.25 : 1);
-
-    // The search radius sweeps outward first, then the hits stay wired up.
-    const sweep = Math.min(1, p / 0.35);
-    ctx.beginPath();
-    ctx.arc(query.x, query.y, 18 + sweep * 150, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (0.28 * envelope * (1 - sweep)) + ')';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-
-    query.hits.forEach((hit, i) => {
-        const at = 0.12 + i * 0.05;                 // closest neighbour connects first
-        if (p < at) return;
-        const strength = envelope * (1 - i / (K_NEAREST + 2));
-        ctx.beginPath();
-        ctx.moveTo(query.x, query.y);
-        ctx.lineTo(hit.n.x, hit.n.y);
-        ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (0.45 * strength) + ')';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        hit.n.glow = Math.max(hit.n.glow, strength);
-    });
-
-    ctx.beginPath();
-    ctx.arc(query.x, query.y, 3.2, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(' + accentRGB + ',' + (0.9 * envelope) + ')';
-    ctx.fill();
-}
-
-function frame(now) {
-    // First frame: hold the opening query back so it is not lost behind paint.
-    if (!lastQueryAt) lastQueryAt = now - QUERY_PERIOD * 0.6;
-
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-    if (!query && now - lastQueryAt > QUERY_PERIOD) {
-        spawnQuery(now);
-        lastQueryAt = now;
-    }
-
-    for (const n of nodes) n.update();
-    drawAmbientLinks();
-    drawQuery(now);                                 // raises glow on this frame's hits
-    for (const n of nodes) n.draw();
-
-    animFrame = requestAnimationFrame(frame);
-}
-
-function startHero() {
-    if (animFrame !== null || reduceMotion.matches) return;
-    animFrame = requestAnimationFrame(frame);
-}
-
-function stopHero() {
-    if (animFrame === null) return;
-    cancelAnimationFrame(animFrame);
-    animFrame = null;
-}
-
-function syncHero() {
-    if (reduceMotion.matches || document.hidden || !heroVisible) stopHero();
-    else startHero();
-}
-
-if (!reduceMotion.matches) {
-    readAccent();
-    resizeCanvas();
-    initNodes();
-    startHero();
-    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-    window.addEventListener('resize', () => { resizeCanvas(); initNodes(); }, { passive: true });
-    document.addEventListener('visibilitychange', syncHero);
-    document.addEventListener('themechange', readAccent);
-    reduceMotion.addEventListener('change', syncHero);
-    new IntersectionObserver(entries => {
-        heroVisible = entries[0].isIntersecting;
-        syncHero();
-    }).observe(document.getElementById('hero'));
-} else {
-    canvas.remove();
-}
-
-// ==================== TYPING EFFECT ====================
-const typingEl = document.getElementById('typingText');
-let typingTimer = null;
-
-function startTyping() {
-    clearTimeout(typingTimer);
-    const phrases = TYPING[lang];
-
-    if (reduceMotion.matches) {
-        typingEl.textContent = phrases[0];
-        const cursor = document.querySelector('.typing-cursor');
-        if (cursor) cursor.remove();
-        return;
-    }
-
-    let phraseIdx = 0, charIdx = 0, isDeleting = false;
-    (function typeEffect() {
-        const current = phrases[phraseIdx];
-        if (!isDeleting) {
-            typingEl.textContent = current.substring(0, charIdx + 1);
-            charIdx++;
-            if (charIdx === current.length) {
-                typingTimer = setTimeout(() => { isDeleting = true; typeEffect(); }, 2000);
-                return;
-            }
-        } else {
-            typingEl.textContent = current.substring(0, charIdx - 1);
-            charIdx--;
-            if (charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-            }
-        }
-        typingTimer = setTimeout(typeEffect, isDeleting ? 30 : 70);
-    })();
-}
-
-startTyping();
-document.addEventListener('langchange', startTyping);
 
 // ==================== NAV STATE ON SCROLL ====================
 // rAF-throttled: the old handler ran a querySelector + offsetTop read per link

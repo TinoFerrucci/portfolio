@@ -9,8 +9,8 @@
     <link rel="canonical" href="https://constantinoferrucci.com.ar/">
 
     <!-- Theme color per scheme so the mobile browser chrome matches the page -->
-    <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#050507" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0e0e0c" media="(prefers-color-scheme: dark)">
 
     <!-- Social sharing -->
     <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Constantino Ferrucci — Senior Generative AI Engineer, Montevideo, Uruguay">
     <meta name="twitter:image" content="https://constantinoferrucci.com.ar/assets/og/og-image.png">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1'/%3E%3Cstop offset='100%25' style='stop-color:%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial Black' font-size='45' font-weight='bold' text-anchor='middle' fill='white'%3ECF%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f06a3c'/%3E%3Ctext x='50' y='68' font-family='Arial Black' font-size='45' font-weight='bold' text-anchor='middle' fill='%2316130f'%3ECF%3C/text%3E%3C/svg%3E">
     <!-- Fonts are self-hosted (assets/fonts), so there is no third-party round
          trip before first paint. Preload only the two faces the hero needs. -->
     <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -65,7 +65,6 @@
 <body>
 
 <div class="scroll-progress" aria-hidden="true"></div>
-<canvas id="heroCanvas" aria-hidden="true"></canvas>
 
 <a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
 
@@ -105,12 +104,8 @@
 
 <section class="hero" id="hero">
     <div class="hero-content">
-        <div class="hero-tag">
-            <div class="hero-tag-dot"></div>
-            <span data-i18n="hero.tag">Open to international opportunities</span>
-        </div>
-        <h1 class="hero-name"><span class="hero-name-gradient">Constantino<br>Ferrucci</span></h1>
-        <p class="hero-title"><span id="typingText"></span><span class="typing-cursor"></span></p>
+        <h1 class="hero-name">Constantino<br>Ferrucci</h1>
+        <p class="hero-title" data-i18n="hero.title">Senior GenAI Engineer. Production RAG &amp; LLM systems.</p>
         <p class="hero-sub" data-i18n="hero.sub">I build Generative AI systems that survive production &mdash; enterprise RAG architecture, retrieval quality, and the backend engineering that holds it all together.</p>
         <div class="hero-cta">
             <a href="#chat" class="btn btn-primary">
@@ -124,24 +119,24 @@
         </div>
     </div>
 
-    <div class="hero-float hero-float-1">
-        <div class="float-card">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Apple · <span class="float-sub" data-i18n="hero.floatVia">Contractor via TCS</span>
+    <dl class="hero-facts">
+        <div>
+            <dt data-i18n="hero.nowLabel">Currently</dt>
+            <dd data-i18n="hero.now">Apple <span>contractor via TCS</span></dd>
         </div>
-    </div>
-    <div class="hero-float hero-float-2">
-        <div class="float-card" style="animation-delay:-2s">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            Montevideo, Uruguay
+        <div>
+            <dt data-i18n="hero.teachLabel">Teaching</dt>
+            <dd data-i18n="hero.teach">UNR <span>Computer Vision instructor</span></dd>
         </div>
-    </div>
-    <div class="hero-float hero-float-3">
-        <div class="float-card" style="animation-delay:-3s"><span class="icon">UNR</span> <span data-i18n="hero.floatUnr">Instructor</span></div>
-    </div>
-    <div class="hero-float hero-float-4">
-        <div class="float-card" style="animation-delay:-1.5s"><span class="icon">RAG</span> LLMs &amp; MCP</div>
-    </div>
+        <div>
+            <dt data-i18n="hero.baseLabel">Based in</dt>
+            <dd>Montevideo <span>Uruguay</span></dd>
+        </div>
+        <div>
+            <dt data-i18n="hero.statusLabel">Status</dt>
+            <dd class="hero-status" data-i18n="hero.tag">Open to international opportunities</dd>
+        </div>
+    </dl>
 </section>
 
 <section class="section" id="expertise">
