@@ -424,7 +424,7 @@
 
         <div class="about-shell">
             <div class="about-bio">
-                <p data-i18n-html="about.p1">My path in applied AI began with three years at <strong>Wiener lab.</strong>, where I built internal assistants for technical support and customer service, along with document computer vision and data pipelines for clinical laboratory workflows. Today, contractor work with <strong>Apple</strong> through Tata Consultancy Services connects language models to enterprise data, APIs, and internal workflows using LangChain, LangGraph, and MCP.</p>
+                <p data-i18n-html="about.p1">My path in applied AI began with three years at <strong>Wiener lab.</strong>, where I built internal assistants for technical support and customer service, along with document computer vision and data pipelines for clinical laboratory workflows. Today I work with <strong>Apple</strong> as a contractor through Tata Consultancy Services, connecting language models to enterprise data, APIs and internal workflows with LangChain, LangGraph and MCP.</p>
                 <p data-i18n-html="about.p2">At the <strong>Universidad Nacional de Rosario</strong>, I teach Computer Vision as an Auxiliar de Primera and previously taught Natural Language Processing on the same degree.</p>
                 <p data-i18n="about.p3">An earlier secondary technical degree in electromechanics led to the Tecnicatura Universitaria en Inteligencia Artificial from UNR, and the Licenciatura en Inteligencia Artificial is currently in progress.</p>
             </div>
@@ -898,28 +898,24 @@
         </div>
     </section>
 
-<section class="chat-section" id="chat">
-    <div class="chat-wrapper">
-        <div class="chat-header reveal">
-            <div class="section-label">// <span data-i18n="chat.label">ask me anything</span></div>
-            <h2 class="section-title" data-i18n="chat.title">Talk to my assistant</h2>
-            <p class="section-desc" style="margin-bottom:0" data-i18n="chat.desc">It knows my background, my stack and my projects. Ask it anything you would ask me in a first call &mdash; or pick one of the questions below.</p>
+<section class="sheet wrap" id="chat">
+    <header class="sheet-head reveal">
+        <span class="section-kicker" data-i18n="chat.label">Assistant</span>
+        <div class="sheet-title-block">
+            <h2 class="sheet-title" data-i18n="chat.title">Talk to my assistant</h2>
+            <p class="sheet-desc" data-i18n="chat.desc">Ask about my work, projects, or teaching at UNR, or pick one of the questions below.</p>
         </div>
-
-        <div class="chat-main reveal reveal-delay-1">
+    </header>
+    <figure class="chat-frame reveal reveal-delay-1" aria-labelledby="chatFigureLabel">
             <div class="loading-overlay" id="loadingOverlay">
                 <div class="loader"></div>
-                <div class="loader-text" data-i18n="chat.loading">Waking up the assistant…</div>
+                <div class="loader-text" data-i18n="chat.loading">Loading models…</div>
             </div>
 
             <div class="chat-toolbar">
                 <div class="chat-toolbar-left">
-                    <div class="toolbar-dots">
-                        <div class="toolbar-dot"></div>
-                        <div class="toolbar-dot"></div>
-                        <div class="toolbar-dot"></div>
-                    </div>
-                    <span class="toolbar-title">constantino-ai</span>
+                    <span class="fig-label" id="chatFigureLabel" data-i18n="chat.figure">FIG 06 &middot; ASSISTANT</span>
+                    <span class="chat-agent-id" data-i18n="chat.agent">constantino-ai</span>
                 </div>
                 <div class="chat-toolbar-right">
                     <button type="button" class="toolbar-btn" id="advancedBtn" aria-expanded="false" aria-controls="advancedPanel">
@@ -934,24 +930,24 @@
                 <div class="model-select-wrapper">
                     <label class="visually-hidden" for="providerSelect" data-i18n="chat.provider">Model provider</label>
                     <select class="model-select" id="providerSelect">
-                        <option value="">Provider…</option>
+                        <option value="" data-i18n="chat.providerPrompt">Provider…</option>
                     </select>
                     <label class="visually-hidden" for="modelSelectEl" data-i18n="chat.modelLabel">Language model</label>
                     <select class="model-select" id="modelSelectEl">
-                        <option value="">Model…</option>
+                        <option value="" data-i18n="chat.modelPrompt">Model…</option>
                     </select>
                 </div>
                 <p class="advanced-hint" id="modelsStatus" role="status"></p>
                 <input type="hidden" id="selectedModel" value="">
             </div>
 
-            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Conversation with the assistant" tabindex="0">
+            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Conversation with the assistant" data-i18n-attr="aria-label:chat.log" tabindex="0">
                 <div class="message assistant">
                     <div class="message-header">
                         <div class="msg-avatar" aria-hidden="true">CF</div>
                         <span class="msg-label" data-i18n="chat.assistant">Assistant</span>
                     </div>
-                    <div class="msg-body" data-i18n="chat.greeting">Hi! I'm Constantino's assistant. Ask me about his experience with production RAG systems, the stack he works with, what he teaches at UNR, or how to reach him.</div>
+                    <div class="msg-body" data-i18n="chat.greeting">Hi! I’m Constantino’s assistant. What would you like to know about him?</div>
                 </div>
             </div>
 
@@ -966,13 +962,11 @@
                 <div class="chat-input-row">
                     <label class="visually-hidden" for="userInput" data-i18n="chat.inputLabel">Your question</label>
                     <textarea class="chat-input" id="userInput" rows="1" placeholder="Ask something…" data-i18n-attr="placeholder:chat.placeholder"></textarea>
-                    <button type="button" class="send-btn" id="sendBtn" aria-label="Send message" data-i18n-attr="aria-label:chat.send">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                    <button type="button" class="send-btn" id="sendBtn" aria-label="Send message" data-i18n-attr="aria-label:chat.send"><span data-i18n="chat.submit">Send</span>
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
+    </figure>
 </section>
 
 <section class="sheet wrap" id="contact">
@@ -991,7 +985,7 @@
                 <a href="https://www.linkedin.com/in/constantinoferrucci" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="contact.linkedin">LinkedIn &#8599;</a>
                 <a href="https://github.com/TinoFerrucci" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="project.github">GitHub &#8599;</a>
                 <a href="assets/cv/Constantino_Ferrucci_CV.pdf" class="btn btn-secondary" download data-i18n="cmd.cv">Download CV</a>
-                <a href="mailto:constantinoferrucci@gmail.com" class="btn btn-primary">
+                <a href="mailto:constantinoferrucci@gmail.com" class="btn btn-secondary">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 <span data-i18n="ct.email">Email me</span>
             </a>

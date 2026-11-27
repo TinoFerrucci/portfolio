@@ -17,6 +17,12 @@ function withViewTransition(mutate) {
 // because switching back to EN needs the strings too.
 const I18N = {
     en: {
+        "chat.modelPrompt": "Model…",
+        "chat.providerPrompt": "Provider…",
+        "chat.submit": "Send",
+        "chat.log": "Conversation with the assistant",
+        "chat.agent": "constantino-ai",
+        "chat.figure": "FIG 06 &middot; ASSISTANT",
         "project.fig_02": "FIG 02",
         "project.synergyx_ai": "SynergyX-AI",
         "project.github": "GitHub &#8599;",
@@ -310,14 +316,14 @@ const I18N = {
         'exp.p3t': "Computer vision and teaching",
         'exp.p3d': "The three-stage course pipeline covers similarity search, classification, and object detection. In the UNR vision pipeline, I evaluate similarity search with NDCG@10. Teaching at UNR covers Computer Vision today and previously covered Natural Language Processing.",
 
-        'chat.label': 'ask me anything',
+        'chat.label': "Assistant",
         'chat.title': 'Talk to my assistant',
-        'chat.desc': 'It knows my background, my stack and my projects. Ask it anything you would ask me in a first call &mdash; or pick one of the questions below.',
-        'chat.loading': 'Waking up the assistant…',
+        'chat.desc': "Ask about my work, projects, or teaching at UNR, or pick one of the questions below.",
+        'chat.loading': "Loading models…",
         'chat.model': 'Model', 'chat.clear': 'Clear',
         'chat.provider': 'Model provider', 'chat.modelLabel': 'Language model',
         'chat.assistant': 'Assistant', 'chat.you': 'You', 'chat.thinking': 'Thinking…',
-        'chat.greeting': "Hi! I'm Constantino's assistant. Ask me about his experience with production RAG systems, the stack he works with, what he teaches at UNR, or how to reach him.",
+        'chat.greeting': "Hi! I’m Constantino’s assistant. What would you like to know about him?",
         'chat.s1': 'What is he working on at Apple?',
         'chat.s2': 'How does he build RAG for production?',
         'chat.s3': 'What does he teach at UNR?',
@@ -333,7 +339,7 @@ const I18N = {
 
         'about.label': "About",
         'about.title': "About me",
-        'about.p1': "My path in applied AI began with three years at <strong>Wiener lab.</strong>, where I built internal assistants for technical support and customer service, along with document computer vision and data pipelines for clinical laboratory workflows. Today, contractor work with <strong>Apple</strong> through Tata Consultancy Services connects language models to enterprise data, APIs, and internal workflows using LangChain, LangGraph, and MCP.",
+        'about.p1': "My path in applied AI began with three years at <strong>Wiener lab.</strong>, where I built internal assistants for technical support and customer service, along with document computer vision and data pipelines for clinical laboratory workflows. Today I work with <strong>Apple</strong> as a contractor through Tata Consultancy Services, connecting language models to enterprise data, APIs and internal workflows with LangChain, LangGraph and MCP.",
         'about.p2': "At the <strong>Universidad Nacional de Rosario</strong>, I teach Computer Vision as an Auxiliar de Primera and previously taught Natural Language Processing on the same degree.",
         'about.p3': "An earlier secondary technical degree in electromechanics led to the Tecnicatura Universitaria en Inteligencia Artificial from UNR, and the Licenciatura en Inteligencia Artificial is currently in progress.",
         'about.p4': 'Before software I completed a secondary technical degree in electromechanics; since 2022 I\'ve worked full-time in AI engineering.',
@@ -408,6 +414,12 @@ const I18N = {
     },
 
     es: {
+        "chat.modelPrompt": "Modelo…",
+        "chat.providerPrompt": "Proveedor…",
+        "chat.submit": "Enviar",
+        "chat.log": "Conversación con el asistente",
+        "chat.agent": "constantino-ai",
+        "chat.figure": "FIG 06 &middot; ASISTENTE",
         "project.fig_02": "FIG 02",
         "project.synergyx_ai": "SynergyX-AI",
         "project.github": "GitHub &#8599;",
@@ -701,14 +713,14 @@ const I18N = {
         'exp.p3t': "Visión por computadora y docencia",
         'exp.p3d': "El proyecto del curso abarca búsqueda por similitud, clasificación y detección de objetos. En la UNR evalúo la búsqueda por similitud con NDCG@10. Actualmente enseño visión por computadora; antes enseñé procesamiento del lenguaje natural.",
 
-        'chat.label': 'preguntame lo que quieras',
+        'chat.label': "Asistente",
         'chat.title': 'Hablá con mi asistente',
-        'chat.desc': 'Conoce mi recorrido, mi stack y mis proyectos. Preguntale lo mismo que me preguntarías en una primera llamada, o elegí una de las preguntas de abajo.',
-        'chat.loading': 'Despertando al asistente…',
+        'chat.desc': "Puedes preguntar por mi trabajo, mis proyectos o mis clases en la UNR, o elegir una de las preguntas de abajo.",
+        'chat.loading': "Cargando modelos…",
         'chat.model': 'Modelo', 'chat.clear': 'Limpiar',
         'chat.provider': 'Proveedor del modelo', 'chat.modelLabel': 'Modelo de lenguaje',
         'chat.assistant': 'Asistente', 'chat.you': 'Vos', 'chat.thinking': 'Pensando…',
-        'chat.greeting': '¡Hola! Soy el asistente de Constantino. Preguntame por su experiencia con sistemas RAG en producción, el stack con el que trabaja, qué enseña en la UNR o cómo contactarlo.',
+        'chat.greeting': "Hola, soy el asistente de Constantino. ¿Qué te gustaría saber sobre él?",
         'chat.s1': '¿En qué trabaja en Apple?',
         'chat.s2': '¿Cómo arma RAG para producción?',
         'chat.s3': '¿Qué enseña en la UNR?',
@@ -724,7 +736,7 @@ const I18N = {
 
         'about.label': "Perfil",
         'about.title': "Sobre mí",
-        'about.p1': "Trabajé tres años en <strong>Wiener lab.</strong>, donde desarrollé asistentes internos de soporte técnico y atención al cliente, sistemas de visión por computadora para analizar documentos y procesos de datos para laboratorios clínicos. Hoy trabajo con <strong>Apple</strong> como contratista a través de Tata Consultancy Services. Conecto modelos de lenguaje con datos empresariales, API y procesos internos mediante LangChain, LangGraph y MCP.",
+        'about.p1': "Trabajé tres años en <strong>Wiener lab.</strong>, donde desarrollé asistentes internos de soporte técnico y atención al cliente, sistemas de visión por computadora para analizar documentos y procesos de datos para laboratorios clínicos. Hoy trabajo con <strong>Apple</strong> como contratista a través de Tata Consultancy Services. Conecto modelos de lenguaje con datos de la empresa, API y procesos internos mediante LangChain, LangGraph y MCP.",
         'about.p2': "En la <strong>Universidad Nacional de Rosario</strong> enseño visión por computadora como auxiliar de primera. Antes enseñé procesamiento del lenguaje natural en la misma carrera.",
         'about.p3': "Tras completar la secundaria técnica en electromecánica, obtuve el título de la Tecnicatura Universitaria en Inteligencia Artificial de la UNR. Actualmente curso la Licenciatura en Inteligencia Artificial.",
         'about.p4': 'Antes del software completé una tecnicatura secundaria en electromecánica; desde 2022 trabajo full-time en ingeniería de IA.',
@@ -933,15 +945,27 @@ toTop.addEventListener('click', () => {
 
 // Active link tracking via IntersectionObserver instead of scroll math
 const navLinkEls = Array.from(document.querySelectorAll('.nav-link'));
-const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinkEls.forEach(l => {
-            const on = l.getAttribute('href') === '#' + entry.target.id;
-            l.classList.toggle('active', on);
-            if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
-        });
+let heroVisible = true;
+let currentSection = null;
+function syncCurrentLink() {
+    navLinkEls.forEach(link => {
+        const active = !heroVisible && link.hash === '#' + currentSection;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
     });
+}
+const heroObserver = new IntersectionObserver(([entry]) => {
+    heroVisible = entry.isIntersecting;
+    syncCurrentLink();
+});
+heroObserver.observe(document.getElementById('hero'));
+
+const sectionObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+        if (entry.isIntersecting) currentSection = entry.target.id;
+    }
+    syncCurrentLink();
 }, { rootMargin: '-45% 0px -50% 0px' });
 
 navLinkEls.forEach(l => {
