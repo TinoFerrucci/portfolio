@@ -2569,6 +2569,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ==================== STREAMING CURSOR ====================
    Shown only while tokens are still arriving from the model. */
+/* Streamed text is plain until finalized; keep its line breaks visible. */
+.msg-body.streaming { white-space: pre-wrap; }
 .msg-body.streaming::after {
     content: '';
     display: inline-block;

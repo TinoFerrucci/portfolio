@@ -313,24 +313,26 @@ function t(key) {
     return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
 }
 
-function applyLang(next) {
+function applyLang(next, translateContent = true) {
     lang = (next === 'es') ? 'es' : 'en';
     document.documentElement.setAttribute('lang', lang);
     try { localStorage.setItem('lang', lang); } catch (e) { /* storage blocked */ }
 
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        el.innerHTML = t(el.getAttribute('data-i18n'));
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-        el.innerHTML = t(el.getAttribute('data-i18n-html'));
-    });
-    // "placeholder:chat.placeholder;aria-label:chat.send"
-    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-        el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
-            const [attr, key] = pair.split(':');
-            if (attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+    if (translateContent) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            el.innerHTML = t(el.getAttribute('data-i18n'));
         });
-    });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            el.innerHTML = t(el.getAttribute('data-i18n-html'));
+        });
+        // "placeholder:chat.placeholder;aria-label:chat.send"
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+            el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+                const [attr, key] = pair.split(':');
+                if (attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+            });
+        });
+    }
 
     const langBtn = document.getElementById('langToggle');
     langBtn.setAttribute('aria-label', t('nav.lang'));
@@ -351,7 +353,7 @@ document.getElementById('langToggle').addEventListener('click', () => {
     withViewTransition(() => applyLang(next));
 });
 
-applyLang(storedLang);
+applyLang(storedLang, storedLang === 'es' || document.documentElement.lang !== 'en');
 
 // ==================== THEME ====================
 // Three states: explicit "light", explicit "dark", or unset = follow the OS.
@@ -540,6 +542,7 @@ advancedBtn.addEventListener('click', () => {
     const open = advancedBtn.getAttribute('aria-expanded') !== 'true';
     advancedBtn.setAttribute('aria-expanded', String(open));
     advancedPanel.hidden = !open;
+    if (open) ensureModels();
 });
 
 // One tap to ask the questions people actually want answered
@@ -559,9 +562,18 @@ new IntersectionObserver((entries, obs) => {
     if (entries[0].isIntersecting) { kickChatDeps(); obs.disconnect(); }
 }).observe(document.getElementById('chat'));
 
+let modelsPromise;
+const overlay = document.getElementById('loadingOverlay');
+overlay.classList.add('hidden');
+
+function ensureModels() {
+    if (!modelsPromise) modelsPromise = loadModels();
+    return modelsPromise;
+}
+
 async function loadModels() {
     const status = statusEl;
-    const overlay = document.getElementById('loadingOverlay');
+    overlay.classList.remove('hidden');
 
     try {
         const response = await fetch(`${WORKER_URL}/models`);
@@ -670,6 +682,8 @@ function scrollChatToEnd() {
 }
 
 async function sendMessage() {
+    if (!userInputEl.value.trim()) return;
+    if (!document.getElementById('selectedModel').value) await ensureModels();
     const modelId = document.getElementById('selectedModel').value;
     const userInput = userInputEl.value.trim();
 
@@ -751,15 +765,18 @@ async function streamReply(response, typing) {
     let text = '';
     let live = null;
     let queued = false;
+    let pending = '';
+    let textNode;
 
-    // Re-parsing markdown on every token is wasteful; repaint once per frame.
+    // Append only new text while streaming; format once at finalization.
     const paint = () => {
         if (queued || !live) return;
         queued = true;
         requestAnimationFrame(() => {
             queued = false;
             if (!live) return;
-            live.innerHTML = renderMarkdown(text);
+            textNode.appendData(pending);
+            pending = '';
             scrollChatToEnd();
         });
     };
@@ -792,29 +809,26 @@ async function streamReply(response, typing) {
                         typing.remove();
                         live = addMessage('assistant', '').querySelector('.msg-body');
                         live.classList.add('streaming');
+                        textNode = live.appendChild(document.createTextNode(''));
                     }
                     text += delta;
+                    pending += delta;
                     paint();
                 }
             }
         }
     } finally {
         reader.cancel().catch(() => { /* already closed */ });
+        typing.remove();
+        text = text.trim();
+        if (live) {
+            live.classList.remove('streaming');
+            live.innerHTML = renderMarkdown(text || t('chat.empty'));
+            live = null; // Ignore any queued frame after finalization.
+            scrollChatToEnd();
+        }
     }
-
-    typing.remove();
-    text = text.trim();
-
-    // Detach `live` before the final write so a queued frame cannot repaint it.
-    const finalEl = live;
-    live = null;
-    if (finalEl) {
-        finalEl.classList.remove('streaming');
-        finalEl.innerHTML = renderMarkdown(text || t('chat.empty'));
-        scrollChatToEnd();
-    } else {
-        addMessage('assistant', text || t('chat.empty'));
-    }
+    if (!textNode) addMessage('assistant', t('chat.empty'));
     return text;
 }
 
@@ -828,7 +842,7 @@ function addMessage(role, content) {
             <div class="msg-avatar" aria-hidden="true">${avatar}</div>
             <span class="msg-label">${label}</span>
         </div>
-        <div class="msg-body">${role === 'user' ? escapeHtml(content) : renderMarkdown(content)}</div>
+        <div class="msg-body">${role === 'user' ? escapeHtml(content) : (content ? renderMarkdown(content) : '')}</div>
     `;
     chatMessagesEl.appendChild(div);
     scrollChatToEnd();
@@ -856,7 +870,6 @@ function renderMarkdown(text) {
     }
 }
 
-loadModels();
 
 // ==================== COMMAND PALETTE (Ctrl/Cmd + K) ====================
 // Keyboard-first navigation. Every entry is something you can also reach by
