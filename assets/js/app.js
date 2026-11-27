@@ -17,17 +17,271 @@ function withViewTransition(mutate) {
 // because switching back to EN needs the strings too.
 const I18N = {
     en: {
-        'nav.home': 'Home', 'nav.chat': 'Chat', 'nav.about': 'About', 'nav.skills': 'Skills',
+        "chat.modelPrompt": "Model…",
+        "chat.providerPrompt": "Provider…",
+        "chat.submit": "Send",
+        "chat.log": "Conversation with the assistant",
+        "chat.agent": "constantino-ai",
+        "chat.figure": "FIG 06 &middot; ASSISTANT",
+        "project.fig_02": "FIG 02",
+        "project.synergyx_ai": "SynergyX-AI",
+        "project.github": "GitHub &#8599;",
+        "project.fig_02_synergyx_ai_architecture": "FIG 02: SynergyX-AI architecture",
+        "project.brief_and_cv_parsing_feed_semantic_embeddings": "Brief and CV parsing feed semantic embeddings matching, routed via FastAPI projects, talent and teams routers to explainable teams and SQLite.",
+        "project.brief": "Brief",
+        "project.plain_text": "plain text",
+        "project.cv_parsing": "CV parsing",
+        "project.skill_profiles": "skill profiles",
+        "project.embeddings": "Embeddings",
+        "project.semantic_match": "semantic match",
+        "project.fastapi_api": "FastAPI API",
+        "project.projects_talent_teams": "projects / talent / teams",
+        "project.explainable_teams": "explainable teams",
+        "project.react_ts_sqlite": "React &middot; TS &middot; SQLite",
+        "project.embeddings_matching_explainable_teams_fastapi_react": "Embeddings matching &middot; Explainable teams &middot; FastAPI + React",
+        "project.python_fastapi_react_typescript_vite_embeddings_sqlite": "Python &middot; FastAPI &middot; React &middot; TypeScript &middot; Vite &middot; Embeddings &middot; SQLite",
+        "project.fig_03": "FIG 03",
+        "project.datagentra": "Datagentra",
+        "project.fig_03_datagentra_architecture": "FIG 03: Datagentra architecture",
+        "project.5_step_agent_generates_sql_passes_through": "5-step agent generates SQL, passes through a read-only SQL guard blocking INSERT, UPDATE, DELETE and DROP before querying SQLite, running on OpenAI or Ollama with Docker Compose.",
+        "project.5_step_agent": "5-step agent",
+        "project.sql_retry_chart": "SQL &middot; retry &middot; chart",
+        "project.read_only_guard": "Read-only guard",
+        "project.blocks_dml_drop": "blocks DML / DROP",
+        "project.sqlite": "SQLite",
+        "project.sql_chart_summary": "SQL, chart, summary",
+        "project.openai_or_ollama_docker_compose": "OpenAI or Ollama &middot; Docker Compose",
+        "project.5_step_agent_read_only_sql_guard": "5-step agent &middot; Read-only SQL guard &middot; OpenAI or Ollama",
+        "project.python_langchain_react_docker_ollama_typescript_sqlite": "Python &middot; LangChain &middot; React &middot; Docker &middot; Ollama &middot; TypeScript &middot; SQLite",
+        "project.fig_04": "FIG 04",
+        "project.fastapi_fastmcp_autogen": "fastapi-fastmcp-autogen",
+        "project.fig_04_fastapi_fastmcp_autogen_architecture": "FIG 04: fastapi-fastmcp-autogen architecture",
+        "project.bidirectional_bridge_using_dynamic_pydantic_models_between": "Bidirectional bridge using dynamic Pydantic models between FastMCP tools and FastAPI POST endpoints with Swagger docs.",
+        "project.mcp_tools": "MCP tools",
+        "project.fastmcp": "FastMCP",
+        "project.pydantic": "Pydantic",
+        "project.dynamic_models": "dynamic models",
+        "project.shared_handler": "shared handler",
+        "project.rest_api": "REST API",
+        "project.post_swagger": "POST + Swagger",
+        "project.write_logic_once_mcp_fastapi": "Write logic once &middot; MCP &harr; FastAPI",
+        "project.mcp_rest_bidirectional_dynamic_pydantic_models_swagger": "MCP&#8596;REST bidirectional &middot; Dynamic Pydantic models &middot; Swagger docs",
+        "project.python_fastapi_fastmcp_pydantic_uvicorn": "Python &middot; FastAPI &middot; FastMCP &middot; Pydantic &middot; Uvicorn",
+        "project.fig_05": "FIG 05",
+        "project.fig_05_dog_breed_recognition_pipeline_architecture": "FIG 05: Dog breed recognition pipeline architecture",
+        "project.async_fastapi_202_jobs_feed_three_stages": "Async FastAPI 202 jobs feed three stages: similarity search over pgvector embeddings, supervised classification, and object detection, scored with NDCG@10, precision, recall and F1.",
+        "project.fastapi": "FastAPI",
+        "project.202_jobs": "202 + jobs",
+        "project.1_search": "1. Search",
+        "project.pgvector": "pgvector",
+        "project.2_classify": "2. Classify",
+        "project.supervised": "supervised",
+        "project.3_detect": "3. Detect",
+        "project.objects": "objects",
+        "project.eval_ndcg_10_precision_f1": "EVAL: NDCG@10 &middot; Precision &middot; F1",
+        "project.ndcg_10_scored_async_202_jobs_pgvector": "NDCG@10 scored &middot; Async 202 jobs &middot; pgvector",
+        "project.pytorch_fastapi_pgvector_gradio_docker": "PyTorch &middot; FastAPI &middot; pgvector &middot; Gradio &middot; Docker",
+        "project.discord_agent": "Discord agent",
+        "project.arrow": "&#8599;",
+        "project.rag_over_video_game_data": "RAG over video-game data",
+        "project.rainfall_prediction_shap": "Rainfall prediction + SHAP",
+        "project.sqlalchemy_fastapi": "SQLAlchemy + FastAPI",
+        "project.all_repositories_on_github": "All repositories on GitHub",
+        "project.brief_cv_parsing_embeddings_fastapi_api_projects": "Brief + CV parsing <span class=\"flow-arrow\">&rarr;</span> Embeddings <span class=\"flow-arrow\">&rarr;</span> FastAPI API (projects / talent / teams) <span class=\"flow-arrow\">&rarr;</span> React + SQLite",
+        "project.5_step_agent_read_only_sql_guard_": "5-step agent <span class=\"flow-arrow\">&rarr;</span> Read-only SQL guard <span class=\"flow-arrow\">&rarr;</span> SQLite <span class=\"flow-arrow\">&rarr;</span> SQL, chart, summary (OpenAI or Ollama)",
+        "project.mcp_tools_fastmcp_dynamic_pydantic_models_rest": "MCP tools (FastMCP) <span class=\"flow-arrow\">&harr;</span> Dynamic Pydantic models <span class=\"flow-arrow\">&harr;</span> REST API (POST + Swagger)",
+        "project.fastapi_202_1_search_pgvector_2_classify": "FastAPI 202 <span class=\"flow-arrow\">&rarr;</span> 1. Search (pgvector) <span class=\"flow-arrow\">&rarr;</span> 2. Classify <span class=\"flow-arrow\">&rarr;</span> 3. Detect <span class=\"flow-arrow\">&rarr;</span> Eval (NDCG@10, P/R/F1)",
+        "ledger.apple_via_tata_consultancy_services_contractor_based": "Apple, via Tata Consultancy Services (contractor) &middot; Based in Montevideo, Uruguay",
+        "ledger.wiener_lab_rosario_argentina": "Wiener lab. &middot; Rosario, Argentina",
+        "ledger.universidad_nacional_de_rosario_rosario_argentina": "Universidad Nacional de Rosario &middot; Rosario, Argentina",
+        "ledger.eetp_n_466_manuel_n_savio_rosario": "EETP N&deg; 466 Manuel N. Savio &middot; Rosario, Argentina",
+        "stack.01_04": "01 / 04",
+        "stack.rag": "RAG",
+        "stack.hybrid_search": "Hybrid search",
+        "stack.vector_search": "Vector search",
+        "stack.chunking_strategies": "Chunking strategies",
+        "stack.query_rewriting": "Query rewriting",
+        "stack.hyde": "HyDE",
+        "stack.metadata_filtering": "Metadata filtering",
+        "stack.cross_encoder_re_ranking": "Cross-encoder re-ranking",
+        "stack.multi_layer_retrieval": "Multi-layer retrieval",
+        "stack.langchain": "LangChain",
+        "stack.langgraph": "LangGraph",
+        "stack.llamaindex": "LlamaIndex",
+        "stack.mcp": "MCP",
+        "stack.prompt_orchestration": "Prompt orchestration",
+        "stack.context_engineering": "Context engineering",
+        "stack.function_calling": "Function calling",
+        "stack.structured_outputs": "Structured outputs",
+        "stack.agentic_workflows": "Agentic workflows",
+        "stack.tool_use": "Tool use",
+        "stack.evals": "Evals",
+        "stack.ragas": "RAGAS",
+        "stack.hallucination_mitigation": "Hallucination mitigation",
+        "stack.guardrails": "Guardrails",
+        "stack.answer_traceability": "Answer traceability",
+        "stack.token_budgeting": "Token budgeting",
+        "stack.semantic_caching": "Semantic caching",
+        "stack.feedback_loops": "Feedback loops",
+        "stack.openai_api": "OpenAI API",
+        "stack.hugging_face": "Hugging Face",
+        "stack.openrouter": "OpenRouter",
+        "stack.vllm": "vLLM",
+        "stack.ollama": "Ollama",
+        "stack.streaming_responses": "Streaming responses",
+        "stack.02_04": "02 / 04",
+        "stack.pytorch": "PyTorch",
+        "stack.tensorflow": "TensorFlow",
+        "stack.scikit_learn": "scikit-learn",
+        "stack.transformers": "Transformers",
+        "stack.onnx": "ONNX",
+        "stack.numpy": "NumPy",
+        "stack.pandas": "pandas",
+        "stack.opencv": "OpenCV",
+        "stack.yolo": "YOLO",
+        "stack.resnet": "ResNet",
+        "stack.vision_transformers": "Vision Transformers",
+        "stack.object_detection": "Object detection",
+        "stack.semantic_segmentation": "Semantic segmentation",
+        "stack.ocr_document_ai": "OCR / Document AI",
+        "stack.data_augmentation": "Data augmentation",
+        "stack.transfer_learning": "Transfer learning",
+        "stack.spacy": "spaCy",
+        "stack.tokenization": "Tokenization",
+        "stack.ner": "NER",
+        "stack.text_classification": "Text classification",
+        "stack.sentence_embeddings": "Sentence embeddings",
+        "stack.topic_modelling": "Topic modelling",
+        "stack.ndcg_k": "NDCG@k",
+        "stack.map": "mAP",
+        "stack.precision_recall_f1": "Precision / Recall / F1",
+        "stack.shap": "SHAP",
+        "stack.cross_validation": "Cross-validation",
+        "stack.hyperparameter_tuning": "Hyperparameter tuning",
+        "stack.03_04": "03 / 04",
+        "stack.python": "Python",
+        "stack.uvicorn": "Uvicorn",
+        "stack.asyncio": "asyncio",
+        "stack.rest_design": "REST design",
+        "stack.openapi": "OpenAPI",
+        "stack.websockets": "WebSockets",
+        "stack.sse_streaming": "SSE streaming",
+        "stack.background_jobs": "Background jobs",
+        "stack.postgresql": "PostgreSQL",
+        "stack.sql": "SQL",
+        "stack.sqlalchemy": "SQLAlchemy",
+        "stack.alembic": "Alembic",
+        "stack.redis": "Redis",
+        "stack.chromadb": "ChromaDB",
+        "stack.qdrant": "Qdrant",
+        "stack.query_optimization": "Query optimization",
+        "stack.indexing": "Indexing",
+        "stack.html": "HTML",
+        "stack.css": "CSS",
+        "stack.gradio": "Gradio",
+        "stack.streamlit": "Streamlit",
+        "stack.04_04": "04 / 04",
+        "stack.docker": "Docker",
+        "stack.docker_compose": "Docker Compose",
+        "stack.health_checks": "Health checks",
+        "stack.cloudflare_workers": "Cloudflare Workers",
+        "stack.git": "Git",
+        "stack.github_actions": "GitHub Actions",
+        "stack.linux": "Linux",
+        "stack.bash": "Bash",
+        "stack.uv": "uv",
+        "stack.opentelemetry": "OpenTelemetry",
+        "stack.structured_logging": "Structured logging",
+        "stack.metrics": "Metrics",
+        "stack.tracing": "Tracing",
+        "stack.claude_code": "Claude Code",
+        "stack.cursor": "Cursor",
+        "stack.vs_code": "VS Code",
+        "stack.jupyter": "Jupyter",
+        "stack.colab": "Colab",
+        "stack.postman": "Postman",
+        "contact.linkedin": "LinkedIn &#8599;",
+        "project.view_synergyx_ai_on_github": "View SynergyX-AI on GitHub",
+        "project.view_datagentra_on_github": "View Datagentra on GitHub",
+        "project.view_fastapi_fastmcp_autogen_on_github": "View fastapi-fastmcp-autogen on GitHub",
+        "project.view_the_dog_recognition_pipeline_on_github": "View the dog recognition pipeline on GitHub",
+        "ledger.filter_experience_tracks": "Filter experience tracks",
+        "ledger.all": "All",
+        "hero.name": "Constantino<br>Ferrucci",
+        "hero.projects": "View projects",
+        "hero.base": "Montevideo <span>Uruguay</span>",
+        "hero.status": "<span class=\"status-inline\"><span class=\"status-dot\" aria-hidden=\"true\"></span>Open to international roles</span>",
+        "hero.portrait": "Portrait of Constantino Ferrucci",
+        "hero.summary": "Current profile summary",
+        "about.focus": "What I do",
+        "fig.label": "FIG 01 &middot; REFERENCE AGENT ARCHITECTURE",
+        "fig.heading": "How I structure agent systems: planning, delegation, tools and review",
+        "fig.traces_offline_evals_inform_routing_opentelemetry": "Traces + offline evals inform routing (OpenTelemetry)",
+        "fig.01": "01",
+        "fig.request": "Request",
+        "fig.user_goal_enters": "User goal enters",
+        "fig.the_graph": "the graph",
+        "fig.02": "02",
+        "fig.supervisor_langgraph": "Supervisor (LangGraph)",
+        "fig.stateful_graph_plans_steps_and_routes_work": "Stateful graph plans steps and routes work",
+        "fig.03a": "03a",
+        "fig.retrieval_agent": "Retrieval agent",
+        "fig.hybrid_search_over": "Hybrid search over",
+        "fig.documents": "documents",
+        "fig.03b": "03b",
+        "fig.data_agent": "Data agent",
+        "fig.sql_behind_a": "SQL behind a",
+        "fig.read_only_guard": "read-only guard",
+        "fig.03c": "03c",
+        "fig.tool_agent": "Tool agent",
+        "fig.calls_apis_and": "Calls APIs and",
+        "fig.services": "services",
+        "fig.a2a_agent_cards_task_delegation": "A2A: agent cards, task delegation",
+        "fig.mcp_tool_layer": "MCP tool layer",
+        "fig.fastmcp_servers": "FastMCP servers",
+        "fig.rest_harr_mcp": "REST &harr; MCP",
+        "fig.typed_schemas_pydantic": "Typed schemas (Pydantic)",
+        "fig.autogen_review_loop": "AutoGen review loop",
+        "fig.planner_and_critic_agents": "Planner and critic agents",
+        "fig.check_the_draft": "check the draft",
+        "fig.04": "04",
+        "fig.answer": "Answer",
+        "fig.cited_validated_returned": "Cited, validated, returned",
+        "fig.traces_offline_evals_inform": "Traces + offline evals inform",
+        "fig.routing_opentelemetry": "routing (OpenTelemetry)",
+        "fig.user_goal_enters_the_graph": "User goal enters the graph",
+        "fig.stateful_graph_plans_steps": "Stateful graph plans steps",
+        "fig.and_routes_work": "and routes work",
+        "fig.hybrid_search_over_documents": "Hybrid search over documents",
+        "fig.sql_behind_a_read_only_guard": "SQL behind a read-only guard",
+        "fig.calls_apis_and_services": "Calls APIs and services",
+        "fig.wide": "FIG 01: Reference agent architecture",
+        "fig.vertical": "FIG 01: Vertical reference agent architecture",
+        "fig.wideDesc": "01 Request enters 02 Supervisor (LangGraph), which plans and routes work across 03a Retrieval agent, 03b Data agent, and 03c Tool agent linked via A2A agent cards and task delegation. Agents call the MCP tool layer bidirectionally (FastMCP servers, REST to MCP, typed Pydantic schemas), while drafts flow from the agents row into the AutoGen review loop and 04 Answer. Dashed OpenTelemetry traces and offline evaluations return to Supervisor.",
+        "fig.verticalDesc": "Vertical flow from 01 Request to 02 Supervisor (LangGraph), through 03a Retrieval agent, 03b Data agent, and 03c Tool agent connected by A2A delegation, with bidirectional calls to the MCP tool layer and drafts routed from the agents into the AutoGen review loop and 04 Answer, plus a dashed OpenTelemetry feedback loop returning to Supervisor.",
+        "fig.step1": "01 Request: User goal enters the graph.",
+        "fig.step2": "02 Supervisor (LangGraph): Stateful graph plans steps and routes work to three specialist agents.",
+        "fig.step3": "03a Retrieval agent: Hybrid search over documents. 03b Data agent: SQL behind a read-only guard. 03c Tool agent: Calls APIs and services. Agents coordinate via A2A agent cards and task delegation, and exchange calls bidirectionally with the MCP tool layer (FastMCP servers, REST to MCP, and typed Pydantic schemas).",
+        "fig.step4": "AutoGen review loop: Draft outputs flow from the agents into planner and critic agents before returning.",
+        "fig.step5": "04 Answer: Cited, validated, returned. OpenTelemetry traces and offline evaluations inform how routing gets revised.",
+        "fig.loop": "<strong>LOOP:</strong> Traces and offline evals are how routing gets revised.",
+        "about.evidence.exp-wiener": "Evidence: <a href=\"#exp-wiener\">Wiener lab.</a>, <a href=\"#exp-apple\">Apple</a>",
+        "about.evidence.exp-apple": "Evidence: <a href=\"#exp-apple\">Apple</a>, <a href=\"#project-datagentra\">Datagentra</a>, <a href=\"#project-fastmcp\">fastapi-fastmcp-autogen</a>",
+        "about.evidence.project-dog-pipeline": "Evidence: <a href=\"#project-dog-pipeline\">UNR pipeline</a>, <a href=\"#exp-unr-cv\">UNR Computer Vision</a>, <a href=\"#exp-unr-nlp\">UNR NLP</a>",
+
+        'nav.home': 'Home', 'nav.chat': 'Assistant', 'nav.about': 'About', 'nav.skills': 'Stack',
         'nav.exp': 'Experience', 'nav.projects': 'Projects', 'nav.contact': 'Contact',
         'nav.lang': 'Cambiar a español', 'nav.langShort': 'ES',
         'nav.themeLight': 'Switch to light theme', 'nav.themeDark': 'Switch to dark theme',
 
         'hero.tag': 'Open to international opportunities',
-        'hero.sub': 'I build Generative AI systems that survive production &mdash; enterprise RAG architecture, retrieval quality, and the backend engineering that holds it all together.',
-        'hero.ctaChat': 'Ask my assistant',
-        'hero.ctaCv': 'Download CV',
-        'hero.floatVia': 'Contractor via TCS',
-        'hero.floatUnr': 'Instructor',
+        'hero.sub': "I build RAG and agent systems, and I teach Computer Vision.",
+        'hero.ctaChat': "Ask my assistant",
+        'hero.ctaCv': "Download CV",
+        'hero.title': "Senior GenAI Engineer.",
+        'hero.nowLabel': "Currently", 'hero.now': "Apple <span>contractor via TCS</span>",
+        'hero.teachLabel': "Teaching", 'hero.teach': "UNR <span>Computer Vision</span>",
+        'hero.baseLabel': "Based in", 'hero.statusLabel': "Status",
 
         'sk.retrieval': 'Retrieval', 'sk.orch': 'Orchestration',
         'sk.rel': 'Reliability &amp; evaluation', 'sk.serving': 'Models &amp; serving',
@@ -55,21 +309,21 @@ const I18N = {
         'exp.label': 'what i do',
         'exp.title': 'Beyond the demo',
         'exp.desc': 'Most GenAI projects die between the notebook and production. My work is the part that comes after: making retrieval accurate, answers traceable, and the whole thing stable under real load.',
-        'exp.p1t': 'Enterprise RAG architecture',
-        'exp.p1d': 'Multi-layer retrieval: semantic and hybrid search, metadata filtering and re-ranking. Knowledge ingestion pipelines that parse, normalize, index and version documents so answers stay traceable to a source.',
-        'exp.p2t': 'Reliability &amp; evaluation',
-        'exp.p2d': 'Hallucination mitigation, controlled context injection and business-rule alignment. Evaluation frameworks, observability and feedback loops, so answer quality is something you measure instead of something you hope for.',
-        'exp.p3t': 'AI backend engineering',
-        'exp.p3d': 'API design and microservice-oriented deployments, containerized infrastructure and rollout strategy, performance tuning and scalability planning. The unglamorous layer that decides whether the model ever reaches a user.',
+        'exp.p1t': "Retrieval and evaluation",
+        'exp.p1d': "Search systems over technical manuals, PDFs, and databases combine hybrid search, metadata filters, and re-ranking so answers trace back to their sources. Grounding checks and business-rule filters keep responses tied to verified records.",
+        'exp.p2t': "Agents, MCP and the backend behind them",
+        'exp.p2d': "Tool-calling agent workflows on LangChain, LangGraph, and MCP connect language models to APIs and databases. These services ship with FastAPI and Docker for container deployment.",
+        'exp.p3t': "Computer vision and teaching",
+        'exp.p3d': "The three-stage course pipeline covers similarity search, classification, and object detection. In the UNR vision pipeline, I evaluate similarity search with NDCG@10. Teaching at UNR covers Computer Vision today and previously covered Natural Language Processing.",
 
-        'chat.label': 'ask me anything',
+        'chat.label': "Assistant",
         'chat.title': 'Talk to my assistant',
-        'chat.desc': 'It knows my background, my stack and my projects. Ask it anything you would ask me in a first call &mdash; or pick one of the questions below.',
-        'chat.loading': 'Waking up the assistant…',
+        'chat.desc': "Ask about my work, projects, or teaching at UNR, or pick one of the questions below.",
+        'chat.loading': "Loading models…",
         'chat.model': 'Model', 'chat.clear': 'Clear',
         'chat.provider': 'Model provider', 'chat.modelLabel': 'Language model',
         'chat.assistant': 'Assistant', 'chat.you': 'You', 'chat.thinking': 'Thinking…',
-        'chat.greeting': "Hi! I'm Constantino's assistant. Ask me about his experience with production RAG systems, the stack he works with, what he teaches at UNR, or how to reach him.",
+        'chat.greeting': "Hi! I’m Constantino’s assistant. What would you like to know about him?",
         'chat.s1': 'What is he working on at Apple?',
         'chat.s2': 'How does he build RAG for production?',
         'chat.s3': 'What does he teach at UNR?',
@@ -83,75 +337,75 @@ const I18N = {
         'chat.err': 'I could not answer: %m. Try again, or pick another model.',
         'chat.empty': '(empty response)',
 
-        'about.label': 'about me',
-        'about.title': 'AI engineer,<br>production-first',
-        'about.p1': "I'm <strong>Constantino Ferrucci</strong>, a Generative AI engineer based in <strong>Montevideo, Uruguay</strong>. I design, deploy and optimize production-grade GenAI systems &mdash; the kind that have to keep answering correctly on a Tuesday afternoon, not just in a demo.",
-        'about.p2': "I'm currently a <strong>Senior GenAI Engineer (contractor via Tata Consultancy Services) working with Apple</strong>, architecting end-to-end systems that connect large language models to structured and unstructured data sources, enterprise platforms and service-oriented backends &mdash; including agent-based workflows built on LangChain, LangGraph and MCP.",
-        'about.p3': 'In parallel I teach as an <strong>Auxiliar de Primera in Computer Vision at the Universidad Nacional de Rosario</strong>, where I also taught NLP. Before that I spent three years at <strong>Wiener lab.</strong> building AI systems for clinical laboratory workflows &mdash; document computer vision, data pipelines and internal assistants.',
-        'about.p4': 'Before software I completed a secondary technical degree in electromechanics; since 2022 I have worked full-time in AI engineering.',
+        'about.label': "About",
+        'about.title': "About me",
+        'about.p1': "My path in applied AI began with three years at <strong>Wiener lab.</strong>, where I built internal assistants for technical support and customer service, along with document computer vision and data pipelines for clinical laboratory workflows. Today I work with <strong>Apple</strong> as a contractor through Tata Consultancy Services, connecting language models to enterprise data, APIs and internal workflows with LangChain, LangGraph and MCP.",
+        'about.p2': "At the <strong>Universidad Nacional de Rosario</strong>, I teach Computer Vision as an Auxiliar de Primera and previously taught Natural Language Processing on the same degree.",
+        'about.p3': "An earlier secondary technical degree in electromechanics led to the Tecnicatura Universitaria en Inteligencia Artificial from UNR, and the Licenciatura en Inteligencia Artificial is currently in progress.",
+        'about.p4': 'Before software I completed a secondary technical degree in electromechanics; since 2022 I\'ve worked full-time in AI engineering.',
         'about.s1': 'Years in AI engineering', 'about.s2': 'UNR courses taught',
         'about.s3': 'Worked across', 'about.s4': 'Professional working',
 
-        'skills.label': 'tech stack', 'skills.title': 'The stack, with receipts',
+        'skills.label': 'tech stack', 'skills.title': "Tools I use",
         'skills.desc': 'Four areas, broken down the way I actually think about them &mdash; not one flat wall of logos. Each card ends with where you can see it running.',
-        'skills.proof1': 'Shipped in SynergyX-AI, Datagentra and fastapi-fastmcp-autogen.',
-        'skills.proof2': 'Every project on this page runs on this stack.',
-        'skills.proof3': 'I teach this at UNR — the dog-recognition pipeline is mine.',
+        'skills.proof1': "Embeddings, agents, and MCP appear in SynergyX-AI, Datagentra, and fastapi-fastmcp-autogen.",
+        'skills.proof2': "Datagentra uses SQLite. The dog breed recognition pipeline uses FastAPI and pgvector.",
+        'skills.proof3': "I wrote the dog breed recognition pipeline for my Computer Vision course at UNR.",
         'skills.proof4': "This site's assistant runs on a Cloudflare Worker.",
         'skills.g1': 'GenAI &amp; LLM systems', 'skills.g2': 'ML, CV &amp; NLP',
         'skills.g3': 'Backend &amp; data', 'skills.g4': 'Infra &amp; tooling',
 
-        'tl.label': 'track record', 'tl.title': "Where I've worked",
+        'tl.label': 'track record', 'tl.title': "Experience and education",
         'tl.desc': 'Two tracks running in parallel: building AI systems in industry, and teaching them at the Universidad Nacional de Rosario.',
-        'tl.d1': 'May 2026 — Present', 'tl.t1': 'Senior Generative AI Engineer',
+        'tl.d1': "May 2026 &ndash; Present", 'tl.t1': 'Senior Generative AI Engineer',
         'tl.c1': 'Apple (contractor) via Tata Consultancy Services · Montevideo, Uruguay',
-        'tl.b1': 'Production-grade GenAI automations for business and IT use cases, built alongside automation architects, product owners and business stakeholders. End-to-end intelligent workflows combining LLMs with APIs, scripts, RPA and event-driven flows; agent-based workflows (task planning, tool use, decision-making) on LangChain, LangGraph and MCP; RAG pipelines over vector databases for enterprise knowledge grounding; prompt engineering, structured outputs and guardrails, plus security, compliance and responsible-AI controls through rollout and monitoring.',
-        'tl.d2': 'Oct 2024 — Present', 'tl.t2': 'Auxiliar de Primera — Computer Vision',
+        'tl.b1': "This role focuses on GenAI automations for business and IT use cases alongside automation architects, product owners, and business stakeholders. The systems connect language models to APIs, scripts, RPA, and event-driven flows, including agent workflows on LangChain, LangGraph, and MCP, RAG pipelines over vector databases, structured outputs, guardrails, and security and compliance controls through rollout and monitoring.",
+        'tl.d2': "Oct 2024 &ndash; Present", 'tl.t2': "Auxiliar de Primera, Computer Vision",
         'tl.c2': 'Universidad Nacional de Rosario · Rosario, Argentina',
-        'tl.b2': 'Teaching Computer Vision in the Tecnicatura Universitaria en Inteligencia Artificial: fundamentals plus hands-on assignments in Python, PyTorch, OpenCV and Hugging Face Transformers. I authored the practical three-stage pipeline students build on, and work with faculty on curriculum and assessments.',
-        'tl.d3': 'Jun 2023 — Apr 2026', 'tl.t3': 'AI Developer',
+        'tl.b2': "I teach Computer Vision in the Tecnicatura Universitaria en Inteligencia Artificial, covering fundamentals and hands-on assignments in Python, PyTorch, OpenCV, and Hugging Face Transformers. Course work builds on the three-stage pipeline I authored, alongside faculty collaboration on curriculum and assessments.",
+        'tl.d3': "Jun 2023 &ndash; Apr 2026", 'tl.t3': 'AI Developer',
         'tl.c3': 'Wiener lab. · Rosario, Argentina',
-        'tl.b3': 'LLM-driven solutions for technical support, customer service and product-knowledge automation, grounded on internal documentation, technical manuals, PDFs, relational databases and search engines. RAG architectures combining vector search, metadata filtering and business rules to raise answer accuracy; data pipelines for ingesting and normalizing medical and technical data; integration with internal APIs, enterprise systems and authentication layers.',
-        'tl.d4': '2022 — 2024', 'tl.t4': 'Tecnicatura Universitaria en Inteligencia Artificial',
+        'tl.b3': "I built LLM assistants for technical support, customer service, and product-knowledge automation grounded on internal documentation, technical manuals, PDFs, relational databases, and search engines. The RAG pipelines combined vector search, metadata filtering, and business rules, backed by ingestion pipelines for medical and technical data and integrations with internal APIs and authentication layers.",
+        'tl.d4': "2022 &ndash; 2024", 'tl.t4': 'Tecnicatura Universitaria en Inteligencia Artificial',
         'tl.c4': 'Universidad Nacional de Rosario',
-        'tl.b4': 'University degree in Artificial Intelligence: deep learning, computer vision, NLP and industrial applications.',
+        'tl.b4': "Technical degree in Artificial Intelligence covering deep learning, computer vision, NLP, and industrial applications.",
 
         'tl.pro': 'Professional', 'tl.aca': 'Academic &amp; teaching',
-        'tl.d5': 'Oct 2024 — May 2026', 'tl.t5': 'Auxiliar de Primera — NLP',
+        'tl.d5': "Oct 2024 &ndash; May 2026", 'tl.t5': "Auxiliar de Primera, NLP",
         'tl.c5': 'Universidad Nacional de Rosario · Rosario, Argentina',
-        'tl.b5': 'Nineteen months teaching Natural Language Processing on the same degree: fundamentals, embeddings, transformers and applied language modelling, plus course material and practical assessments.',
-        'tl.d7': '2024 — Present', 'tl.t7': 'Licenciatura en Inteligencia Artificial',
+        'tl.b5': "Natural Language Processing instruction on the same degree covered fundamentals, embeddings, transformers, and applied language modelling, along with course materials and practical assessments.",
+        'tl.d7': "2024 &ndash; Present", 'tl.t7': 'Licenciatura en Inteligencia Artificial',
         'tl.c7': 'Universidad Nacional de Rosario',
-        'tl.b7': "Bachelor's degree in Artificial Intelligence, in progress — the continuation of the technical degree completed in 2024.",
-        'tl.d6': '2014 — 2020', 'tl.t6': 'Secondary technical degree in electromechanics',
+        'tl.b7': "Bachelor's degree in Artificial Intelligence, in progress. Continuation of the technical degree completed in 2024.",
+        'tl.d6': "2014 &ndash; 2020", 'tl.t6': 'Secondary technical degree in electromechanics',
         'tl.c6': 'EETP N° 466 Manuel N. Savio · Rosario, Argentina',
         'tl.b6': 'Secondary technical degree (EETP N° 466).',
-        'pr.label': 'projects', 'pr.title': "Things I've shipped",
+        'pr.label': 'projects', 'pr.title': "Selected projects",
         'pr.desc': 'A selection of what I build when nobody assigns it to me.',
         'pr.new': 'Latest',
-        'pr.p1lead': "Describe a project in plain language and get a staffed, interdisciplinary team back — roles assigned, and the skill gaps you didn't know you had.",
-        'pr.p1a': 'Semantic matching between free-text project briefs and a talent pool, using embeddings rather than keyword filters',
-        'pr.p1b': 'CV parsing service that turns unstructured résumés into structured, comparable skill profiles',
-        'pr.p1c': 'Explainable recommendations: every assignment comes with the reason it was made',
-        'pr.p1d': 'FastAPI backend split into projects / talent / teams routers, React + TypeScript + Vite front end',
-        'pr.p1e': 'Built for universities, hackathons and innovation programmes that staff teams by hand today',
-        'pr.p2lead': 'Write your logic once, get both a REST API and a set of MCP tools. No duplicated handlers, in either direction.',
-        'pr.p2a': 'MCP → FastAPI: inspects registered tools, builds Pydantic models dynamically and registers the matching POST endpoints',
-        'pr.p2b': 'FastAPI → MCP: walks the defined routes, extracts their Pydantic models and exposes them as MCP tools',
-        'pr.p2c': 'Swagger docs come along for free; near-zero configuration either way',
-        'pr.p3lead': 'An autonomous data analyst: ask in plain English, get SQL, a chart and an explanation.',
-        'pr.p3a': 'Five-step agent: generate SQL, execute with retries, summarize, suggest a chart, serialize',
-        'pr.p3b': 'Read-only engine that blocks INSERT, UPDATE, DELETE and DROP outright',
-        'pr.p3c': 'Runs on OpenAI or fully local via Ollama; three services orchestrated with Docker Compose',
+        'pr.p1lead': "SynergyX-AI matches a project brief in plain language to people with relevant skills. It recommends roles and identifies missing skills.",
+        'pr.p1a': "Embeddings match free-text project briefs to candidate profiles in a talent pool",
+        'pr.p1b': "CV parsing service that turns unstructured r&eacute;sum&eacute;s into structured, comparable skill profiles",
+        'pr.p1c': "Each recommendation explains why the person was selected",
+        'pr.p1d': "FastAPI backend split into projects, talent, and teams routers, paired with a React, TypeScript, and Vite front end",
+        'pr.p1e': "Built for universities, hackathons, and innovation programmes that staff teams by hand",
+        'pr.p2lead': "The same handler can serve a REST endpoint and an MCP tool without duplicating route logic in either direction.",
+        'pr.p2a': "MCP to FastAPI: inspects registered tools, builds Pydantic models dynamically, and registers matching POST endpoints",
+        'pr.p2b': "FastAPI to MCP: walks defined routes, extracts their Pydantic models, and exposes them as MCP tools",
+        'pr.p2c': "FastAPI generates the Swagger documentation automatically",
+        'pr.p3lead': "Datagentra takes a question in plain English, generates SQL, explains the result, and suggests a chart.",
+        'pr.p3a': "Five-step agent: generate SQL, execute with retries, summarize, suggest a chart, and serialize",
+        'pr.p3b': "Read-only engine that blocks INSERT, UPDATE, DELETE, and DROP outright",
+        'pr.p3c': "Runs on OpenAI or locally via Ollama with three services orchestrated in Docker Compose",
         'pr.p4title': 'Dog breed recognition pipeline',
-        'pr.p4lead': 'The full computer-vision pipeline I authored for the course I teach at UNR.',
-        'pr.p4a': 'Three stages: similarity search over embeddings, supervised classification, then object detection',
-        'pr.p4b': 'Async FastAPI returning 202 + job ids, pgvector storage with cosine/L2, swappable embedding backbones',
-        'pr.p4c': 'Scored with NDCG@10, precision, recall and F1 — students train their own models against it',
+        'pr.p4lead': "I wrote this computer-vision pipeline for the course I teach at UNR.",
+        'pr.p4a': "Three stages: similarity search over embeddings, supervised classification, and object detection",
+        'pr.p4b': "Async FastAPI returning HTTP 202 and job IDs, pgvector storage with cosine and L2 distance, and swappable embedding backbones",
+        'pr.p4c': "Students train their own models against it. Evaluation uses NDCG@10, precision, recall, and F1.",
         'pr.more': 'More on GitHub',
 
-        'ct.label': 'contact', 'ct.title': "Let's build something that ships",
-        'ct.desc': "I'm open to international opportunities in Generative AI engineering, LLM systems architecture and AI backend engineering. The fastest way to reach me is email or LinkedIn.",
+        'ct.label': 'contact', 'ct.title': "Get in touch",
+        'ct.desc': "I am open to international roles in Generative AI engineering, LLM systems architecture, and AI backend engineering.",
         'ct.email': 'Email me',
         'ft.made': 'Built by', 'ft.loc': 'Montevideo, Uruguay',
         'a11y.skip': 'Skip to content', 'a11y.nav': 'Main navigation',
@@ -160,17 +414,271 @@ const I18N = {
     },
 
     es: {
-        'nav.home': 'Inicio', 'nav.chat': 'Chat', 'nav.about': 'Sobre mí', 'nav.skills': 'Skills',
+        "chat.modelPrompt": "Modelo…",
+        "chat.providerPrompt": "Proveedor…",
+        "chat.submit": "Enviar",
+        "chat.log": "Conversación con el asistente",
+        "chat.agent": "constantino-ai",
+        "chat.figure": "FIG 06 &middot; ASISTENTE",
+        "project.fig_02": "FIG 02",
+        "project.synergyx_ai": "SynergyX-AI",
+        "project.github": "GitHub &#8599;",
+        "project.fig_02_synergyx_ai_architecture": "FIG 02: Arquitectura de SynergyX-AI",
+        "project.brief_and_cv_parsing_feed_semantic_embeddings": "La descripción del proyecto y los perfiles extraídos de los currículos se comparan mediante vectores. FastAPI organiza los proyectos, los candidatos y los equipos; el sistema explica sus recomendaciones y guarda los datos en SQLite.",
+        "project.brief": "Proyecto",
+        "project.plain_text": "texto libre",
+        "project.cv_parsing": "Análisis de CV",
+        "project.skill_profiles": "competencias",
+        "project.embeddings": "Vectores",
+        "project.semantic_match": "afinidad semántica",
+        "project.fastapi_api": "API en FastAPI",
+        "project.projects_talent_teams": "proyectos / perfiles / equipos",
+        "project.explainable_teams": "selección explicada",
+        "project.react_ts_sqlite": "React &middot; TS &middot; SQLite",
+        "project.embeddings_matching_explainable_teams_fastapi_react": "Búsqueda vectorial &middot; Asignaciones explicadas &middot; FastAPI + React",
+        "project.python_fastapi_react_typescript_vite_embeddings_sqlite": "Python &middot; FastAPI &middot; React &middot; TypeScript &middot; Vite &middot; Embeddings &middot; SQLite",
+        "project.fig_03": "FIG 03",
+        "project.datagentra": "Datagentra",
+        "project.fig_03_datagentra_architecture": "FIG 03: Arquitectura de Datagentra",
+        "project.5_step_agent_generates_sql_passes_through": "Un agente de cinco pasos genera SQL. Antes de consultar SQLite, un control de solo lectura bloquea INSERT, UPDATE, DELETE y DROP. Funciona con OpenAI u Ollama y Docker Compose.",
+        "project.5_step_agent": "Agente de 5 pasos",
+        "project.sql_retry_chart": "SQL &middot; reintento &middot; gráfico",
+        "project.read_only_guard": "Solo lectura",
+        "project.blocks_dml_drop": "bloquea DML / DROP",
+        "project.sqlite": "SQLite",
+        "project.sql_chart_summary": "SQL, gráfico, resumen",
+        "project.openai_or_ollama_docker_compose": "OpenAI u Ollama &middot; Docker Compose",
+        "project.5_step_agent_read_only_sql_guard": "Agente de cinco pasos &middot; SQL de solo lectura &middot; OpenAI u Ollama",
+        "project.python_langchain_react_docker_ollama_typescript_sqlite": "Python &middot; LangChain &middot; React &middot; Docker &middot; Ollama &middot; TypeScript &middot; SQLite",
+        "project.fig_04": "FIG 04",
+        "project.fastapi_fastmcp_autogen": "fastapi-fastmcp-autogen",
+        "project.fig_04_fastapi_fastmcp_autogen_architecture": "FIG 04: Arquitectura de fastapi-fastmcp-autogen",
+        "project.bidirectional_bridge_using_dynamic_pydantic_models_between": "Un puente bidireccional conecta herramientas de FastMCP con rutas POST de FastAPI mediante modelos dinámicos de Pydantic. Incluye documentación de Swagger.",
+        "project.mcp_tools": "Herramientas MCP",
+        "project.fastmcp": "FastMCP",
+        "project.pydantic": "Pydantic",
+        "project.dynamic_models": "modelos dinámicos",
+        "project.shared_handler": "lógica compartida",
+        "project.rest_api": "API REST",
+        "project.post_swagger": "POST + Swagger",
+        "project.write_logic_once_mcp_fastapi": "Una sola implementación &middot; MCP &harr; FastAPI",
+        "project.mcp_rest_bidirectional_dynamic_pydantic_models_swagger": "MCP&#8596;REST bidireccional &middot; Modelos dinámicos de Pydantic &middot; Documentación de Swagger",
+        "project.python_fastapi_fastmcp_pydantic_uvicorn": "Python &middot; FastAPI &middot; FastMCP &middot; Pydantic &middot; Uvicorn",
+        "project.fig_05": "FIG 05",
+        "project.fig_05_dog_breed_recognition_pipeline_architecture": "FIG 05: Arquitectura del sistema de reconocimiento de razas de perros",
+        "project.async_fastapi_202_jobs_feed_three_stages": "FastAPI devuelve HTTP 202 e inicia tareas asíncronas para tres etapas: búsqueda por similitud en pgvector, clasificación supervisada y detección de objetos. La evaluación usa NDCG@10, precisión, exhaustividad y F1.",
+        "project.fastapi": "FastAPI",
+        "project.202_jobs": "202 + tareas",
+        "project.1_search": "1. Buscar",
+        "project.pgvector": "pgvector",
+        "project.2_classify": "2. Clasificar",
+        "project.supervised": "supervisada",
+        "project.3_detect": "3. Detectar",
+        "project.objects": "objetos",
+        "project.eval_ndcg_10_precision_f1": "EVAL.: NDCG@10 &middot; Precisión &middot; F1",
+        "project.ndcg_10_scored_async_202_jobs_pgvector": "Evaluación con NDCG@10 &middot; Tareas asíncronas con HTTP 202 &middot; pgvector",
+        "project.pytorch_fastapi_pgvector_gradio_docker": "PyTorch &middot; FastAPI &middot; pgvector &middot; Gradio &middot; Docker",
+        "project.discord_agent": "Agente de Discord",
+        "project.arrow": "&#8599;",
+        "project.rag_over_video_game_data": "RAG con datos de videojuegos",
+        "project.rainfall_prediction_shap": "Predicción de lluvias con SHAP",
+        "project.sqlalchemy_fastapi": "SQLAlchemy + FastAPI",
+        "project.all_repositories_on_github": "Todos los repositorios en GitHub",
+        "project.brief_cv_parsing_embeddings_fastapi_api_projects": "Descripción y análisis de CV <span class=\"flow-arrow\">&rarr;</span> Vectores <span class=\"flow-arrow\">&rarr;</span> API en FastAPI (proyectos, candidatos y equipos) <span class=\"flow-arrow\">&rarr;</span> React y SQLite",
+        "project.5_step_agent_read_only_sql_guard_": "Agente de cinco pasos <span class=\"flow-arrow\">&rarr;</span> Control de solo lectura <span class=\"flow-arrow\">&rarr;</span> SQLite <span class=\"flow-arrow\">&rarr;</span> SQL, gráfico y resumen (OpenAI u Ollama)",
+        "project.mcp_tools_fastmcp_dynamic_pydantic_models_rest": "Herramientas MCP (FastMCP) <span class=\"flow-arrow\">&harr;</span> Modelos dinámicos de Pydantic <span class=\"flow-arrow\">&harr;</span> API REST (POST y Swagger)",
+        "project.fastapi_202_1_search_pgvector_2_classify": "FastAPI 202 <span class=\"flow-arrow\">&rarr;</span> 1. Buscar (pgvector) <span class=\"flow-arrow\">&rarr;</span> 2. Clasificar <span class=\"flow-arrow\">&rarr;</span> 3. Detectar <span class=\"flow-arrow\">&rarr;</span> Evaluar (NDCG@10, precisión, exhaustividad y F1)",
+        "ledger.apple_via_tata_consultancy_services_contractor_based": "Apple, a través de Tata Consultancy Services (contratista) &middot; Mi base es Montevideo, Uruguay",
+        "ledger.wiener_lab_rosario_argentina": "Wiener lab. &middot; Rosario, Argentina",
+        "ledger.universidad_nacional_de_rosario_rosario_argentina": "Universidad Nacional de Rosario &middot; Rosario, Argentina",
+        "ledger.eetp_n_466_manuel_n_savio_rosario": "EETP N&deg; 466 Manuel N. Savio &middot; Rosario, Argentina",
+        "stack.01_04": "01 / 04",
+        "stack.rag": "RAG",
+        "stack.hybrid_search": "Búsqueda híbrida",
+        "stack.vector_search": "Búsqueda vectorial",
+        "stack.chunking_strategies": "Segmentación de documentos",
+        "stack.query_rewriting": "Reformulación de consultas",
+        "stack.hyde": "HyDE",
+        "stack.metadata_filtering": "Filtros de metadatos",
+        "stack.cross_encoder_re_ranking": "Reordenación con codificador cruzado",
+        "stack.multi_layer_retrieval": "Recuperación en varias etapas",
+        "stack.langchain": "LangChain",
+        "stack.langgraph": "LangGraph",
+        "stack.llamaindex": "LlamaIndex",
+        "stack.mcp": "MCP",
+        "stack.prompt_orchestration": "Coordinación de instrucciones",
+        "stack.context_engineering": "Diseño de contexto",
+        "stack.function_calling": "Llamadas a funciones",
+        "stack.structured_outputs": "Salidas estructuradas",
+        "stack.agentic_workflows": "Flujos con agentes",
+        "stack.tool_use": "Uso de herramientas",
+        "stack.evals": "Evaluaciones",
+        "stack.ragas": "RAGAS",
+        "stack.hallucination_mitigation": "Mitigación de alucinaciones",
+        "stack.guardrails": "Controles de seguridad",
+        "stack.answer_traceability": "Trazabilidad de respuestas",
+        "stack.token_budgeting": "Presupuesto de tokens",
+        "stack.semantic_caching": "Caché semántica",
+        "stack.feedback_loops": "Ciclos de retroalimentación",
+        "stack.openai_api": "API de OpenAI",
+        "stack.hugging_face": "Hugging Face",
+        "stack.openrouter": "OpenRouter",
+        "stack.vllm": "vLLM",
+        "stack.ollama": "Ollama",
+        "stack.streaming_responses": "Respuestas en flujo",
+        "stack.02_04": "02 / 04",
+        "stack.pytorch": "PyTorch",
+        "stack.tensorflow": "TensorFlow",
+        "stack.scikit_learn": "scikit-learn",
+        "stack.transformers": "Transformers",
+        "stack.onnx": "ONNX",
+        "stack.numpy": "NumPy",
+        "stack.pandas": "pandas",
+        "stack.opencv": "OpenCV",
+        "stack.yolo": "YOLO",
+        "stack.resnet": "ResNet",
+        "stack.vision_transformers": "Transformadores visuales",
+        "stack.object_detection": "Detección de objetos",
+        "stack.semantic_segmentation": "Segmentación semántica",
+        "stack.ocr_document_ai": "OCR y análisis de documentos",
+        "stack.data_augmentation": "Aumento de datos",
+        "stack.transfer_learning": "Aprendizaje por transferencia",
+        "stack.spacy": "spaCy",
+        "stack.tokenization": "Tokenización",
+        "stack.ner": "NER",
+        "stack.text_classification": "Clasificación de texto",
+        "stack.sentence_embeddings": "Vectores de oraciones",
+        "stack.topic_modelling": "Modelado de temas",
+        "stack.ndcg_k": "NDCG@k",
+        "stack.map": "mAP",
+        "stack.precision_recall_f1": "Precisión / Exhaustividad / F1",
+        "stack.shap": "SHAP",
+        "stack.cross_validation": "Validación cruzada",
+        "stack.hyperparameter_tuning": "Ajuste de hiperparámetros",
+        "stack.03_04": "03 / 04",
+        "stack.python": "Python",
+        "stack.uvicorn": "Uvicorn",
+        "stack.asyncio": "asyncio",
+        "stack.rest_design": "Diseño de API REST",
+        "stack.openapi": "OpenAPI",
+        "stack.websockets": "WebSockets",
+        "stack.sse_streaming": "Transmisión por SSE",
+        "stack.background_jobs": "Tareas en segundo plano",
+        "stack.postgresql": "PostgreSQL",
+        "stack.sql": "SQL",
+        "stack.sqlalchemy": "SQLAlchemy",
+        "stack.alembic": "Alembic",
+        "stack.redis": "Redis",
+        "stack.chromadb": "ChromaDB",
+        "stack.qdrant": "Qdrant",
+        "stack.query_optimization": "Optimización de consultas",
+        "stack.indexing": "Indexación",
+        "stack.html": "HTML",
+        "stack.css": "CSS",
+        "stack.gradio": "Gradio",
+        "stack.streamlit": "Streamlit",
+        "stack.04_04": "04 / 04",
+        "stack.docker": "Docker",
+        "stack.docker_compose": "Docker Compose",
+        "stack.health_checks": "Comprobaciones de estado",
+        "stack.cloudflare_workers": "Cloudflare Workers",
+        "stack.git": "Git",
+        "stack.github_actions": "GitHub Actions",
+        "stack.linux": "Linux",
+        "stack.bash": "Bash",
+        "stack.uv": "uv",
+        "stack.opentelemetry": "OpenTelemetry",
+        "stack.structured_logging": "Registros estructurados",
+        "stack.metrics": "Métricas",
+        "stack.tracing": "Trazas",
+        "stack.claude_code": "Claude Code",
+        "stack.cursor": "Cursor",
+        "stack.vs_code": "VS Code",
+        "stack.jupyter": "Jupyter",
+        "stack.colab": "Colab",
+        "stack.postman": "Postman",
+        "contact.linkedin": "LinkedIn &#8599;",
+        "project.view_synergyx_ai_on_github": "Ver SynergyX-AI en GitHub",
+        "project.view_datagentra_on_github": "Ver Datagentra en GitHub",
+        "project.view_fastapi_fastmcp_autogen_on_github": "Ver fastapi-fastmcp-autogen en GitHub",
+        "project.view_the_dog_recognition_pipeline_on_github": "Ver el proyecto de reconocimiento de razas de perros en GitHub",
+        "ledger.filter_experience_tracks": "Filtrar la experiencia por ámbito",
+        "ledger.all": "Todas",
+        "hero.name": "Constantino<br>Ferrucci",
+        "hero.projects": "Ver proyectos",
+        "hero.base": "Montevideo <span>Uruguay</span>",
+        "hero.status": "<span class=\"status-inline\"><span class=\"status-dot\" aria-hidden=\"true\"></span>Disponible para puestos internacionales</span>",
+        "hero.portrait": "Retrato de Constantino Ferrucci",
+        "hero.summary": "Perfil actual",
+        "about.focus": "Mi trabajo",
+        "fig.label": "FIG 01 &middot; ARQUITECTURA DE REFERENCIA DE AGENTES",
+        "fig.heading": "Cómo organizo los sistemas de agentes: planificación, delegación, herramientas y revisión",
+        "fig.traces_offline_evals_inform_routing_opentelemetry": "Las trazas y las evaluaciones orientan las rutas (OpenTelemetry)",
+        "fig.01": "01",
+        "fig.request": "Solicitud",
+        "fig.user_goal_enters": "El objetivo entra",
+        "fig.the_graph": "en el grafo",
+        "fig.02": "02",
+        "fig.supervisor_langgraph": "Supervisor (LangGraph)",
+        "fig.stateful_graph_plans_steps_and_routes_work": "Planifica y asigna tareas según el estado",
+        "fig.03a": "03a",
+        "fig.retrieval_agent": "Agente de búsqueda",
+        "fig.hybrid_search_over": "Búsqueda híbrida en",
+        "fig.documents": "documentos",
+        "fig.03b": "03b",
+        "fig.data_agent": "Agente de datos",
+        "fig.sql_behind_a": "SQL en modo de",
+        "fig.read_only_guard": "solo lectura",
+        "fig.03c": "03c",
+        "fig.tool_agent": "Agente de APIs",
+        "fig.calls_apis_and": "Llama a API y",
+        "fig.services": "servicios",
+        "fig.a2a_agent_cards_task_delegation": "A2A: fichas de agente, delegación",
+        "fig.mcp_tool_layer": "Capa de herramientas MCP",
+        "fig.fastmcp_servers": "Servidores FastMCP",
+        "fig.rest_harr_mcp": "REST &harr; MCP",
+        "fig.typed_schemas_pydantic": "Esquemas tipados (Pydantic)",
+        "fig.autogen_review_loop": "Revisión con AutoGen",
+        "fig.planner_and_critic_agents": "El planificador y el crítico",
+        "fig.check_the_draft": "revisan el borrador",
+        "fig.04": "04",
+        "fig.answer": "Respuesta",
+        "fig.cited_validated_returned": "Validada y con citas",
+        "fig.traces_offline_evals_inform": "Las trazas y las evaluaciones",
+        "fig.routing_opentelemetry": "orientan las rutas (OpenTelemetry)",
+        "fig.user_goal_enters_the_graph": "El objetivo entra en el grafo",
+        "fig.stateful_graph_plans_steps": "Planifica según el estado",
+        "fig.and_routes_work": "y asigna las tareas",
+        "fig.hybrid_search_over_documents": "Búsqueda híbrida en documentos",
+        "fig.sql_behind_a_read_only_guard": "SQL en modo de solo lectura",
+        "fig.calls_apis_and_services": "Llama a API y servicios",
+        "fig.wide": "FIG 01: Arquitectura de referencia de agentes",
+        "fig.vertical": "FIG 01: Arquitectura de referencia de agentes en vertical",
+        "fig.wideDesc": "La solicitud llega al supervisor de LangGraph, que distribuye las tareas entre agentes de búsqueda, datos y herramientas mediante A2A. Los agentes intercambian llamadas con la capa MCP y envían los borradores a AutoGen para su revisión antes de responder. Las trazas de OpenTelemetry y las evaluaciones orientan las decisiones de enrutamiento.",
+        "fig.verticalDesc": "Diagrama vertical. La solicitud llega al supervisor de LangGraph, que distribuye las tareas entre agentes de búsqueda, datos y herramientas mediante A2A. Los agentes intercambian llamadas con la capa MCP y envían los borradores a AutoGen para su revisión antes de responder. Las trazas de OpenTelemetry y las evaluaciones orientan las decisiones de enrutamiento.",
+        "fig.step1": "01 Solicitud: el objetivo del usuario entra en el grafo.",
+        "fig.step2": "02 Supervisor (LangGraph): planifica los pasos según el estado y asigna trabajo a tres agentes especializados.",
+        "fig.step3": "03a Búsqueda: búsqueda híbrida en documentos. 03b Datos: SQL en modo de solo lectura. 03c Herramientas: llamadas a API y servicios. Los agentes coordinan las tareas mediante fichas y delegación A2A. Intercambian llamadas con la capa MCP, que incluye servidores FastMCP, acceso entre REST y MCP y esquemas tipados con Pydantic.",
+        "fig.step4": "Revisión con AutoGen: el planificador y el crítico revisan los borradores de los agentes antes de devolverlos.",
+        "fig.step5": "04 Respuesta: se valida y se devuelve con citas. Las trazas de OpenTelemetry y las evaluaciones sin conexión sirven para revisar las rutas.",
+        "fig.loop": "<strong>RETROALIMENTACIÓN:</strong> Las trazas y las evaluaciones sin conexión sirven para revisar las rutas.",
+        "about.evidence.exp-wiener": "Referencias: <a href=\"#exp-wiener\">Wiener lab.</a>, <a href=\"#exp-apple\">Apple</a>",
+        "about.evidence.exp-apple": "Referencias: <a href=\"#exp-apple\">Apple</a>, <a href=\"#project-datagentra\">Datagentra</a>, <a href=\"#project-fastmcp\">fastapi-fastmcp-autogen</a>",
+        "about.evidence.project-dog-pipeline": "Referencias: <a href=\"#project-dog-pipeline\">Proyecto de la UNR</a>, <a href=\"#exp-unr-cv\">Visión por computadora en la UNR</a>, <a href=\"#exp-unr-nlp\">Procesamiento del lenguaje natural en la UNR</a>",
+
+        'nav.home': 'Inicio', 'nav.chat': 'Asistente', 'nav.about': 'Sobre mí', 'nav.skills': 'Tecnologías',
         'nav.exp': 'Experiencia', 'nav.projects': 'Proyectos', 'nav.contact': 'Contacto',
         'nav.lang': 'Switch to English', 'nav.langShort': 'EN',
         'nav.themeLight': 'Cambiar a tema claro', 'nav.themeDark': 'Cambiar a tema oscuro',
 
         'hero.tag': 'Abierto a oportunidades internacionales',
-        'hero.sub': 'Construyo sistemas de IA generativa que sobreviven a producción: arquitectura RAG empresarial, calidad de recuperación y la ingeniería de backend que sostiene todo eso.',
-        'hero.ctaChat': 'Preguntale a mi asistente',
-        'hero.ctaCv': 'Descargar CV',
-        'hero.floatVia': 'Contractor vía TCS',
-        'hero.floatUnr': 'Instructor',
+        'hero.sub': "Desarrollo sistemas RAG y sistemas de agentes, y enseño visión por computadora.",
+        'hero.ctaChat': "Preguntar a mi asistente",
+        'hero.ctaCv': "Descargar CV",
+        'hero.title': "Ingeniero sénior de IA generativa.",
+        'hero.nowLabel': "Actualmente", 'hero.now': "Apple <span>contratista a través de TCS</span>",
+        'hero.teachLabel': "Docencia", 'hero.teach': "UNR <span>Visión por computadora</span>",
+        'hero.baseLabel': "Residencia", 'hero.statusLabel': "Disponibilidad",
 
         'sk.retrieval': 'Recuperación', 'sk.orch': 'Orquestación',
         'sk.rel': 'Confiabilidad y evaluación', 'sk.serving': 'Modelos y serving',
@@ -198,21 +706,21 @@ const I18N = {
         'exp.label': 'a qué me dedico',
         'exp.title': 'Más allá de la demo',
         'exp.desc': 'La mayoría de los proyectos de GenAI se mueren entre la notebook y producción. Mi trabajo es lo que viene después: que la recuperación sea precisa, que las respuestas sean trazables y que todo aguante carga real.',
-        'exp.p1t': 'Arquitectura RAG empresarial',
-        'exp.p1d': 'Recuperación multicapa: búsqueda semántica e híbrida, filtrado por metadata y re-ranking. Pipelines de ingesta que parsean, normalizan, indexan y versionan documentos para que cada respuesta siga siendo trazable hasta su fuente.',
-        'exp.p2t': 'Confiabilidad y evaluación',
-        'exp.p2d': 'Mitigación de alucinaciones, inyección de contexto controlada y alineación con reglas de negocio. Frameworks de evaluación, observabilidad y feedback loops: la calidad de respuesta se mide, no se supone.',
-        'exp.p3t': 'Ingeniería de backend para IA',
-        'exp.p3d': 'Diseño de APIs y despliegues orientados a microservicios, infraestructura containerizada y estrategia de rollout, tuning de performance y planificación de escalabilidad. La capa poco glamorosa que decide si el modelo llega o no al usuario.',
+        'exp.p1t': "Recuperación de información y evaluación",
+        'exp.p1d': "Los sistemas de búsqueda combinan búsqueda híbrida, filtros de metadatos y reordenación de resultados en manuales técnicos, archivos PDF y bases de datos. Así es posible rastrear las fuentes de cada respuesta. Los controles contrastan las respuestas con registros verificados y aplican las reglas de negocio.",
+        'exp.p2t': "Agentes, MCP y servicios de backend",
+        'exp.p2d': "Los agentes desarrollados con LangChain, LangGraph y MCP usan herramientas para conectar modelos de lenguaje con API y bases de datos. Estos servicios se implementan con FastAPI y se despliegan en contenedores Docker.",
+        'exp.p3t': "Visión por computadora y docencia",
+        'exp.p3d': "El proyecto del curso abarca búsqueda por similitud, clasificación y detección de objetos. En la UNR evalúo la búsqueda por similitud con NDCG@10. Actualmente enseño visión por computadora; antes enseñé procesamiento del lenguaje natural.",
 
-        'chat.label': 'preguntame lo que quieras',
+        'chat.label': "Asistente",
         'chat.title': 'Hablá con mi asistente',
-        'chat.desc': 'Conoce mi recorrido, mi stack y mis proyectos. Preguntale lo mismo que me preguntarías en una primera llamada, o elegí una de las preguntas de abajo.',
-        'chat.loading': 'Despertando al asistente…',
+        'chat.desc': "Puedes preguntar por mi trabajo, mis proyectos o mis clases en la UNR, o elegir una de las preguntas de abajo.",
+        'chat.loading': "Cargando modelos…",
         'chat.model': 'Modelo', 'chat.clear': 'Limpiar',
         'chat.provider': 'Proveedor del modelo', 'chat.modelLabel': 'Modelo de lenguaje',
         'chat.assistant': 'Asistente', 'chat.you': 'Vos', 'chat.thinking': 'Pensando…',
-        'chat.greeting': '¡Hola! Soy el asistente de Constantino. Preguntame por su experiencia con sistemas RAG en producción, el stack con el que trabaja, qué enseña en la UNR o cómo contactarlo.',
+        'chat.greeting': "Hola, soy el asistente de Constantino. ¿Qué te gustaría saber sobre él?",
         'chat.s1': '¿En qué trabaja en Apple?',
         'chat.s2': '¿Cómo arma RAG para producción?',
         'chat.s3': '¿Qué enseña en la UNR?',
@@ -226,75 +734,75 @@ const I18N = {
         'chat.err': 'No pude responder: %m. Probá de nuevo o elegí otro modelo.',
         'chat.empty': '(respuesta vacía)',
 
-        'about.label': 'sobre mí',
-        'about.title': 'Ingeniero de IA,<br>producción primero',
-        'about.p1': 'Soy <strong>Constantino Ferrucci</strong>, ingeniero de IA generativa radicado en <strong>Montevideo, Uruguay</strong>. Diseño, despliego y optimizo sistemas de GenAI de nivel productivo: de esos que tienen que seguir respondiendo bien un martes a la tarde, no solo en una demo.',
-        'about.p2': 'Actualmente soy <strong>Senior GenAI Engineer (contratista vía Tata Consultancy Services) trabajando con Apple</strong>, donde arquitecturo sistemas end-to-end que conectan modelos de lenguaje con fuentes de datos estructuradas y no estructuradas, plataformas empresariales y backends orientados a servicios &mdash; incluidos workflows con agentes sobre LangChain, LangGraph y MCP.',
-        'about.p3': 'En paralelo soy <strong>Auxiliar de Primera en Visión Computacional en la Universidad Nacional de Rosario</strong>, donde también dicté NLP. Antes pasé tres años en <strong>Wiener lab.</strong> construyendo sistemas de IA para flujos de laboratorio clínico: visión por computadora sobre documentos, pipelines de datos y asistentes internos.',
+        'about.label': "Perfil",
+        'about.title': "Sobre mí",
+        'about.p1': "Trabajé tres años en <strong>Wiener lab.</strong>, donde desarrollé asistentes internos de soporte técnico y atención al cliente, sistemas de visión por computadora para analizar documentos y procesos de datos para laboratorios clínicos. Hoy trabajo con <strong>Apple</strong> como contratista a través de Tata Consultancy Services. Conecto modelos de lenguaje con datos de la empresa, API y procesos internos mediante LangChain, LangGraph y MCP.",
+        'about.p2': "En la <strong>Universidad Nacional de Rosario</strong> enseño visión por computadora como auxiliar de primera. Antes enseñé procesamiento del lenguaje natural en la misma carrera.",
+        'about.p3': "Tras completar la secundaria técnica en electromecánica, obtuve el título de la Tecnicatura Universitaria en Inteligencia Artificial de la UNR. Actualmente curso la Licenciatura en Inteligencia Artificial.",
         'about.p4': 'Antes del software completé una tecnicatura secundaria en electromecánica; desde 2022 trabajo full-time en ingeniería de IA.',
         'about.s1': 'Años en ingeniería de IA', 'about.s2': 'Cátedras dictadas en UNR',
         'about.s3': 'Países donde trabajé', 'about.s4': 'Nivel profesional',
 
-        'skills.label': 'tech stack', 'skills.title': 'El stack, con pruebas',
+        'skills.label': 'tech stack', 'skills.title': "Herramientas que uso",
         'skills.desc': 'Cuatro áreas, desglosadas como las pienso en la práctica &mdash; no un muro plano de logos. Cada tarjeta cierra con dónde podés verlo funcionando.',
-        'skills.proof1': 'En producción en SynergyX-AI, Datagentra y fastapi-fastmcp-autogen.',
-        'skills.proof2': 'Todos los proyectos de esta página corren sobre este stack.',
-        'skills.proof3': 'Esto es lo que dicto en la UNR — el pipeline de perros es mío.',
+        'skills.proof1': "SynergyX-AI, Datagentra y fastapi-fastmcp-autogen usan representaciones vectoriales, agentes o MCP.",
+        'skills.proof2': "Datagentra usa SQLite. El proyecto de reconocimiento de razas de perros usa FastAPI y pgvector.",
+        'skills.proof3': "Desarrollé el sistema de reconocimiento de razas de perros para mi curso de visión por computadora en la UNR.",
         'skills.proof4': 'El asistente de este sitio corre en un Cloudflare Worker.',
         'skills.g1': 'GenAI y sistemas LLM', 'skills.g2': 'ML, CV y NLP',
         'skills.g3': 'Backend y datos', 'skills.g4': 'Infra y herramientas',
 
-        'tl.label': 'trayectoria', 'tl.title': 'Dónde trabajé',
+        'tl.label': 'trayectoria', 'tl.title': "Experiencia y formación",
         'tl.desc': 'Dos carriles en paralelo: construir sistemas de IA en la industria y enseñarlos en la Universidad Nacional de Rosario.',
-        'tl.d1': 'May 2026 — Presente', 'tl.t1': 'Ingeniero Senior de IA Generativa',
+        'tl.d1': "Mayo de 2026 &ndash; actualidad", 'tl.t1': 'Ingeniero Senior de IA Generativa',
         'tl.c1': 'Apple (contratista) vía Tata Consultancy Services · Montevideo, Uruguay',
-        'tl.b1': 'Automatizaciones de GenAI de nivel productivo para casos de uso de negocio y de IT, trabajando junto a arquitectos de automatización, product owners y stakeholders. Workflows inteligentes end-to-end que combinan LLMs con APIs, scripts, RPA y flujos orientados a eventos; workflows con agentes (planificación de tareas, uso de herramientas, toma de decisiones) sobre LangChain, LangGraph y MCP; pipelines RAG sobre bases vectoriales para grounding de conocimiento empresarial; prompt engineering, structured outputs y guardrails, además de controles de seguridad, compliance y responsible-AI durante el rollout y el monitoreo.',
-        'tl.d2': 'Oct 2024 — Presente', 'tl.t2': 'Auxiliar de Primera — Visión Computacional',
+        'tl.b1': "Desarrollo automatizaciones con IA generativa para equipos de negocio y de TI junto con arquitectos de automatización, responsables de producto y equipos de negocio. Conectamos modelos de lenguaje con API, scripts, RPA y flujos basados en eventos. Usamos agentes con LangChain, LangGraph y MCP, RAG con bases de datos vectoriales y salidas estructuradas. Aplicamos controles de seguridad y cumplimiento durante el despliegue y la supervisión.",
+        'tl.d2': "Octubre de 2024 &ndash; actualidad", 'tl.t2': "Auxiliar de Primera, Visión por Computadora",
         'tl.c2': 'Universidad Nacional de Rosario · Rosario, Argentina',
-        'tl.b2': 'Dicto Visión Computacional en la Tecnicatura Universitaria en Inteligencia Artificial: fundamentos y trabajos prácticos en Python, PyTorch, OpenCV y Hugging Face Transformers. Escribí el pipeline práctico de tres etapas sobre el que trabajan los estudiantes y colaboro con la cátedra en el programa y las evaluaciones.',
-        'tl.d3': 'Jun 2023 — Abr 2026', 'tl.t3': 'Desarrollador de IA',
+        'tl.b2': "Enseño visión por computadora en la Tecnicatura Universitaria en Inteligencia Artificial. Las prácticas combinan fundamentos con Python, PyTorch, OpenCV y Hugging Face Transformers. Desarrollé el sistema de tres etapas que usan los estudiantes y colaboro con el equipo docente en el programa y las evaluaciones.",
+        'tl.d3': "Junio de 2023 &ndash; abril de 2026", 'tl.t3': 'Desarrollador de IA',
         'tl.c3': 'Wiener lab. · Rosario, Argentina',
-        'tl.b3': 'Soluciones con LLMs para soporte técnico, atención al cliente y automatización del conocimiento de producto, apoyadas en documentación interna, manuales técnicos, PDFs, bases de datos relacionales y motores de búsqueda. Arquitecturas RAG que combinan búsqueda vectorial, filtrado por metadata y reglas de negocio para mejorar la precisión de las respuestas; pipelines de ingesta y normalización de datos médicos y técnicos; integración con APIs internas, sistemas empresariales y capas de autenticación.',
-        'tl.d4': '2022 — 2024', 'tl.t4': 'Tecnicatura Universitaria en Inteligencia Artificial',
+        'tl.b3': "Desarrollé asistentes basados en modelos de lenguaje para soporte técnico, atención al cliente y consultas sobre productos. Consultaban documentación interna, manuales técnicos, archivos PDF, bases de datos relacionales y buscadores. Los sistemas RAG combinaban búsqueda vectorial, filtros de metadatos y reglas de negocio. También incorporaban datos médicos y técnicos y se integraban con API internas y servicios de autenticación.",
+        'tl.d4': "2022 &ndash; 2024", 'tl.t4': 'Tecnicatura Universitaria en Inteligencia Artificial',
         'tl.c4': 'Universidad Nacional de Rosario',
-        'tl.b4': 'Título universitario en Inteligencia Artificial: deep learning, visión computacional, NLP y aplicaciones industriales.',
+        'tl.b4': "Tecnicatura en inteligencia artificial con formación en aprendizaje profundo, visión por computadora, procesamiento del lenguaje natural y aplicaciones industriales.",
 
         'tl.pro': 'Profesional', 'tl.aca': 'Académico y docencia',
-        'tl.d5': 'Oct 2024 — May 2026', 'tl.t5': 'Auxiliar de Primera — NLP',
+        'tl.d5': "Octubre de 2024 &ndash; mayo de 2026", 'tl.t5': "Auxiliar de Primera, Procesamiento del Lenguaje Natural",
         'tl.c5': 'Universidad Nacional de Rosario · Rosario, Argentina',
-        'tl.b5': 'Diecinueve meses dictando Procesamiento del Lenguaje Natural en la misma carrera: fundamentos, embeddings, transformers y modelado del lenguaje aplicado, además del material de cátedra y las evaluaciones prácticas.',
-        'tl.d7': '2024 — Presente', 'tl.t7': 'Licenciatura en Inteligencia Artificial',
+        'tl.b5': "En la misma carrera enseñé los fundamentos del procesamiento del lenguaje natural, representaciones vectoriales, transformadores y modelado del lenguaje aplicado. Preparé materiales y evaluaciones prácticas.",
+        'tl.d7': "2024 &ndash; actualidad", 'tl.t7': 'Licenciatura en Inteligencia Artificial',
         'tl.c7': 'Universidad Nacional de Rosario',
-        'tl.b7': 'Licenciatura en Inteligencia Artificial, en curso — la continuación de la tecnicatura terminada en 2024.',
-        'tl.d6': '2014 — 2020', 'tl.t6': 'Tecnicatura secundaria en electromecánica',
+        'tl.b7': "Licenciatura en inteligencia artificial en curso. Continuación de la tecnicatura que completé en 2024.",
+        'tl.d6': "2014 &ndash; 2020", 'tl.t6': 'Tecnicatura secundaria en electromecánica',
         'tl.c6': 'EETP N° 466 Manuel N. Savio · Rosario, Argentina',
         'tl.b6': 'Tecnicatura secundaria (EETP N° 466).',
-        'pr.label': 'proyectos', 'pr.title': 'Cosas que construí',
+        'pr.label': 'proyectos', 'pr.title': "Proyectos seleccionados",
         'pr.desc': 'Una selección de lo que hago cuando nadie me lo pide.',
         'pr.new': 'Lo último',
-        'pr.p1lead': 'Describís un proyecto en lenguaje natural y te devuelve un equipo interdisciplinario armado: roles asignados y los huecos de skills que no sabías que tenías.',
-        'pr.p1a': 'Matching semántico entre briefs de proyecto en texto libre y un pool de talento, con embeddings en lugar de filtros por keyword',
-        'pr.p1b': 'Servicio de parsing de CVs que convierte currículums no estructurados en perfiles de skills comparables',
-        'pr.p1c': 'Recomendaciones explicables: cada asignación viene con el motivo por el que se hizo',
-        'pr.p1d': 'Backend FastAPI separado en routers de projects / talent / teams, frontend React + TypeScript + Vite',
-        'pr.p1e': 'Pensado para universidades, hackathons y programas de innovación que hoy arman los equipos a mano',
-        'pr.p2lead': 'Escribís la lógica una sola vez y obtenés a la vez una API REST y un set de herramientas MCP. Sin handlers duplicados, en cualquiera de los dos sentidos.',
-        'pr.p2a': 'MCP → FastAPI: inspecciona las tools registradas, arma modelos Pydantic dinámicamente y registra los endpoints POST correspondientes',
-        'pr.p2b': 'FastAPI → MCP: recorre las rutas definidas, extrae sus modelos Pydantic y las expone como herramientas MCP',
-        'pr.p2c': 'La documentación Swagger viene de regalo; configuración casi nula en ambos sentidos',
-        'pr.p3lead': 'Un analista de datos autónomo: preguntás en castellano y te devuelve SQL, un gráfico y una explicación.',
-        'pr.p3a': 'Agente de cinco pasos: genera SQL, ejecuta con reintentos, resume, sugiere un gráfico y serializa',
-        'pr.p3b': 'Motor de solo lectura que bloquea de plano INSERT, UPDATE, DELETE y DROP',
-        'pr.p3c': 'Corre con OpenAI o 100% local con Ollama; tres servicios orquestados con Docker Compose',
+        'pr.p1lead': "SynergyX-AI compara la descripción de un proyecto con las habilidades de los candidatos. Recomienda perfiles para cada función e identifica las competencias que faltan.",
+        'pr.p1a': "El sistema compara las descripciones de proyectos en texto libre con los perfiles de los candidatos mediante vectores.",
+        'pr.p1b': "Un servicio analiza los currículos y genera perfiles de competencias comparables.",
+        'pr.p1c': "Cada recomendación explica por qué se seleccionó a esa persona.",
+        'pr.p1d': "El backend en FastAPI separa los proyectos, los candidatos y los equipos en módulos de rutas. La interfaz usa React, TypeScript y Vite.",
+        'pr.p1e': "Diseñado para universidades, hackatones y programas de innovación que forman equipos de manera manual.",
+        'pr.p2lead': "Una misma función puede atender una ruta REST y una herramienta MCP sin duplicar la lógica en ninguna de las dos direcciones.",
+        'pr.p2a': "De MCP a FastAPI: inspecciona las herramientas registradas, genera modelos de Pydantic y registra las rutas POST correspondientes.",
+        'pr.p2b': "De FastAPI a MCP: recorre las rutas, extrae sus modelos de Pydantic y las expone como herramientas MCP.",
+        'pr.p2c': "FastAPI genera la documentación de Swagger automáticamente.",
+        'pr.p3lead': "Datagentra recibe una pregunta en inglés, genera SQL, explica el resultado y sugiere un gráfico.",
+        'pr.p3a': "El agente genera SQL, ejecuta la consulta con reintentos, resume el resultado, sugiere un gráfico y serializa la respuesta.",
+        'pr.p3b': "El motor de solo lectura bloquea INSERT, UPDATE, DELETE y DROP.",
+        'pr.p3c': "Funciona con OpenAI o con Ollama en local. Docker Compose coordina los tres servicios.",
         'pr.p4title': 'Pipeline de reconocimiento de razas de perros',
-        'pr.p4lead': 'El pipeline completo de visión por computadora que escribí para la cátedra que dicto en la UNR.',
-        'pr.p4a': 'Tres etapas: búsqueda por similitud sobre embeddings, clasificación supervisada y detección de objetos',
-        'pr.p4b': 'FastAPI asíncrono que devuelve 202 + job ids, almacenamiento en pgvector con coseno/L2 y backbones de embedding intercambiables',
-        'pr.p4c': 'Evaluado con NDCG@10, precisión, recall y F1 — los estudiantes entrenan sus propios modelos contra él',
+        'pr.p4lead': "Desarrollé este sistema para el curso de visión por computadora que dicto en la UNR.",
+        'pr.p4a': "Tres etapas: búsqueda por similitud entre vectores, clasificación supervisada y detección de objetos.",
+        'pr.p4b': "FastAPI devuelve HTTP 202 y un identificador de tarea. Los vectores se guardan en pgvector, con distancias coseno y L2. El modelo que los genera se puede sustituir.",
+        'pr.p4c': "Los estudiantes entrenan sus propios modelos. La evaluación usa NDCG@10, precisión, exhaustividad y F1.",
         'pr.more': 'Más en GitHub',
 
-        'ct.label': 'contacto', 'ct.title': 'Construyamos algo que llegue a producción',
-        'ct.desc': 'Estoy abierto a oportunidades internacionales en ingeniería de IA generativa, arquitectura de sistemas LLM e ingeniería de backend para IA. La vía más rápida es el mail o LinkedIn.',
+        'ct.label': 'contacto', 'ct.title': "Contacto",
+        'ct.desc': "Me interesan las oportunidades internacionales en IA generativa, arquitectura de sistemas con modelos de lenguaje e ingeniería de backend.",
         'ct.email': 'Escribime',
         'ft.made': 'Hecho por', 'ft.loc': 'Montevideo, Uruguay',
         'a11y.skip': 'Saltar al contenido', 'a11y.nav': 'Navegación principal',
@@ -303,35 +811,32 @@ const I18N = {
     }
 };
 
-const TYPING = {
-    en: ['Senior GenAI Engineer', 'Production RAG & LLM systems', 'Computer Vision instructor @ UNR', 'From experiment to production'],
-    es: ['Senior GenAI Engineer', 'Sistemas RAG y LLM en producción', 'Instructor de Visión Computacional @ UNR', 'Del experimento a producción']
-};
-
 let lang = 'en';
 
 function t(key) {
     return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
 }
 
-function applyLang(next) {
+function applyLang(next, translateContent = true) {
     lang = (next === 'es') ? 'es' : 'en';
     document.documentElement.setAttribute('lang', lang);
     try { localStorage.setItem('lang', lang); } catch (e) { /* storage blocked */ }
 
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        el.innerHTML = t(el.getAttribute('data-i18n'));
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-        el.innerHTML = t(el.getAttribute('data-i18n-html'));
-    });
-    // "placeholder:chat.placeholder;aria-label:chat.send"
-    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-        el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
-            const [attr, key] = pair.split(':');
-            if (attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+    if (translateContent) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            el.innerHTML = t(el.getAttribute('data-i18n'));
         });
-    });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            el.innerHTML = t(el.getAttribute('data-i18n-html'));
+        });
+        // "placeholder:chat.placeholder;aria-label:chat.send"
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+            el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+                const [attr, key] = pair.split(':');
+                if (attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+            });
+        });
+    }
 
     const langBtn = document.getElementById('langToggle');
     langBtn.setAttribute('aria-label', t('nav.lang'));
@@ -352,7 +857,7 @@ document.getElementById('langToggle').addEventListener('click', () => {
     withViewTransition(() => applyLang(next));
 });
 
-applyLang(storedLang);
+applyLang(storedLang, storedLang === 'es' || document.documentElement.lang !== 'en');
 
 // ==================== THEME ====================
 // Three states: explicit "light", explicit "dark", or unset = follow the OS.
@@ -416,246 +921,6 @@ document.addEventListener('keydown', e => {
 // Leaving the mobile breakpoint must not strand the page in the open state
 window.matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
-// ==================== HERO: RETRIEVAL IN EMBEDDING SPACE ====================
-// The hero draws the thing the rest of the page claims to do. Each point is a
-// chunk sitting in a vector space; every few seconds a query lands, the k
-// nearest light up and wire themselves to it, then everything settles back.
-// Still decorative, so it keeps the same discipline as any decorative layer:
-// skipped entirely under reduced motion, paused when the tab is hidden or the
-// hero has scrolled out of view.
-const canvas = document.getElementById('heroCanvas');
-const ctx = canvas.getContext('2d');
-
-const K_NEAREST = 6;
-const QUERY_PERIOD = 3400;      // ms between one query and the next
-const QUERY_LIFE = 2400;        // ms a single query stays on screen
-
-let nodes = [];
-let query = null;
-let mouse = { x: -1000, y: -1000 };
-let animFrame = null;
-let lastQueryAt = 0;
-let heroVisible = true;
-let accentRGB = '99,102,241';
-
-function readAccent() {
-    const v = getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim();
-    if (v) accentRGB = v;
-}
-
-function resizeCanvas() {
-    // Match the device pixel ratio so the dots are not blurry on retina screens
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.floor(window.innerWidth * dpr);
-    canvas.height = Math.floor(window.innerHeight * dpr);
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = window.innerHeight + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-
-class Chunk {
-    constructor() { this.reset(); }
-    reset() {
-        this.x = Math.random() * window.innerWidth;
-        this.y = Math.random() * window.innerHeight;
-        this.size = Math.random() * 1.5 + 0.6;
-        this.speedX = (Math.random() - 0.5) * 0.28;
-        this.speedY = (Math.random() - 0.5) * 0.28;
-        this.opacity = Math.random() * 0.45 + 0.12;
-        this.glow = 0;                              // 0..1 while this chunk is a hit
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const distSq = dx * dx + dy * dy;
-        if (distSq < 22500) {                       // 150px, compared without sqrt
-            const force = (150 - Math.sqrt(distSq)) / 150;
-            this.x -= dx * force * 0.02;
-            this.y -= dy * force * 0.02;
-        }
-        if (this.x < 0 || this.x > window.innerWidth) this.speedX *= -1;
-        if (this.y < 0 || this.y > window.innerHeight) this.speedY *= -1;
-        this.glow *= 0.94;                          // decay back to ambient
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * (1 + this.glow * 1.6), 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + accentRGB + ',' + Math.min(1, this.opacity + this.glow * 0.75) + ')';
-        ctx.fill();
-    }
-}
-
-function initNodes() {
-    // Fewer points on phones: the ambient link pass is O(n^2)
-    const cap = window.innerWidth < 640 ? 34 : 70;
-    const count = Math.min(cap, Math.floor(window.innerWidth * window.innerHeight / 18000));
-    nodes = [];
-    for (let i = 0; i < count; i++) nodes.push(new Chunk());
-    query = null;
-}
-
-function drawAmbientLinks() {
-    for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const distSq = dx * dx + dy * dy;
-            if (distSq < 14400) {                   // 120px
-                const dist = Math.sqrt(distSq);
-                ctx.beginPath();
-                ctx.moveTo(nodes[i].x, nodes[i].y);
-                ctx.lineTo(nodes[j].x, nodes[j].y);
-                ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (0.07 * (1 - dist / 120)) + ')';
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-        }
-    }
-}
-
-// A query is a point dropped into the space; its k nearest chunks are the hits.
-// Ranking once at spawn keeps the per-frame cost flat.
-function spawnQuery(now) {
-    if (nodes.length < K_NEAREST) return;
-    const x = window.innerWidth * (0.15 + Math.random() * 0.7);
-    const y = window.innerHeight * (0.15 + Math.random() * 0.7);
-    const hits = nodes
-        .map(n => ({ n, d: Math.hypot(n.x - x, n.y - y) }))
-        .sort((a, b) => a.d - b.d)
-        .slice(0, K_NEAREST);
-    query = { x, y, born: now, hits };
-}
-
-function drawQuery(now) {
-    if (!query) return;
-    const p = (now - query.born) / QUERY_LIFE;
-    if (p >= 1) { query = null; return; }
-
-    // Fade the whole event in and out so nothing pops on or off.
-    const envelope = p < 0.12 ? p / 0.12 : (p > 0.75 ? (1 - p) / 0.25 : 1);
-
-    // The search radius sweeps outward first, then the hits stay wired up.
-    const sweep = Math.min(1, p / 0.35);
-    ctx.beginPath();
-    ctx.arc(query.x, query.y, 18 + sweep * 150, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (0.28 * envelope * (1 - sweep)) + ')';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-
-    query.hits.forEach((hit, i) => {
-        const at = 0.12 + i * 0.05;                 // closest neighbour connects first
-        if (p < at) return;
-        const strength = envelope * (1 - i / (K_NEAREST + 2));
-        ctx.beginPath();
-        ctx.moveTo(query.x, query.y);
-        ctx.lineTo(hit.n.x, hit.n.y);
-        ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (0.45 * strength) + ')';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        hit.n.glow = Math.max(hit.n.glow, strength);
-    });
-
-    ctx.beginPath();
-    ctx.arc(query.x, query.y, 3.2, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(' + accentRGB + ',' + (0.9 * envelope) + ')';
-    ctx.fill();
-}
-
-function frame(now) {
-    // First frame: hold the opening query back so it is not lost behind paint.
-    if (!lastQueryAt) lastQueryAt = now - QUERY_PERIOD * 0.6;
-
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-    if (!query && now - lastQueryAt > QUERY_PERIOD) {
-        spawnQuery(now);
-        lastQueryAt = now;
-    }
-
-    for (const n of nodes) n.update();
-    drawAmbientLinks();
-    drawQuery(now);                                 // raises glow on this frame's hits
-    for (const n of nodes) n.draw();
-
-    animFrame = requestAnimationFrame(frame);
-}
-
-function startHero() {
-    if (animFrame !== null || reduceMotion.matches) return;
-    animFrame = requestAnimationFrame(frame);
-}
-
-function stopHero() {
-    if (animFrame === null) return;
-    cancelAnimationFrame(animFrame);
-    animFrame = null;
-}
-
-function syncHero() {
-    if (reduceMotion.matches || document.hidden || !heroVisible) stopHero();
-    else startHero();
-}
-
-if (!reduceMotion.matches) {
-    readAccent();
-    resizeCanvas();
-    initNodes();
-    startHero();
-    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-    window.addEventListener('resize', () => { resizeCanvas(); initNodes(); }, { passive: true });
-    document.addEventListener('visibilitychange', syncHero);
-    document.addEventListener('themechange', readAccent);
-    reduceMotion.addEventListener('change', syncHero);
-    new IntersectionObserver(entries => {
-        heroVisible = entries[0].isIntersecting;
-        syncHero();
-    }).observe(document.getElementById('hero'));
-} else {
-    canvas.remove();
-}
-
-// ==================== TYPING EFFECT ====================
-const typingEl = document.getElementById('typingText');
-let typingTimer = null;
-
-function startTyping() {
-    clearTimeout(typingTimer);
-    const phrases = TYPING[lang];
-
-    if (reduceMotion.matches) {
-        typingEl.textContent = phrases[0];
-        const cursor = document.querySelector('.typing-cursor');
-        if (cursor) cursor.remove();
-        return;
-    }
-
-    let phraseIdx = 0, charIdx = 0, isDeleting = false;
-    (function typeEffect() {
-        const current = phrases[phraseIdx];
-        if (!isDeleting) {
-            typingEl.textContent = current.substring(0, charIdx + 1);
-            charIdx++;
-            if (charIdx === current.length) {
-                typingTimer = setTimeout(() => { isDeleting = true; typeEffect(); }, 2000);
-                return;
-            }
-        } else {
-            typingEl.textContent = current.substring(0, charIdx - 1);
-            charIdx--;
-            if (charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-            }
-        }
-        typingTimer = setTimeout(typeEffect, isDeleting ? 30 : 70);
-    })();
-}
-
-startTyping();
-document.addEventListener('langchange', startTyping);
-
 // ==================== NAV STATE ON SCROLL ====================
 // rAF-throttled: the old handler ran a querySelector + offsetTop read per link
 // on every scroll event, which forced a layout on each one.
@@ -680,15 +945,27 @@ toTop.addEventListener('click', () => {
 
 // Active link tracking via IntersectionObserver instead of scroll math
 const navLinkEls = Array.from(document.querySelectorAll('.nav-link'));
-const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinkEls.forEach(l => {
-            const on = l.getAttribute('href') === '#' + entry.target.id;
-            l.classList.toggle('active', on);
-            if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
-        });
+let heroVisible = true;
+let currentSection = null;
+function syncCurrentLink() {
+    navLinkEls.forEach(link => {
+        const active = !heroVisible && link.hash === '#' + currentSection;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
     });
+}
+const heroObserver = new IntersectionObserver(([entry]) => {
+    heroVisible = entry.isIntersecting;
+    syncCurrentLink();
+});
+heroObserver.observe(document.getElementById('hero'));
+
+const sectionObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+        if (entry.isIntersecting) currentSection = entry.target.id;
+    }
+    syncCurrentLink();
 }, { rootMargin: '-45% 0px -50% 0px' });
 
 navLinkEls.forEach(l => {
@@ -781,6 +1058,7 @@ advancedBtn.addEventListener('click', () => {
     const open = advancedBtn.getAttribute('aria-expanded') !== 'true';
     advancedBtn.setAttribute('aria-expanded', String(open));
     advancedPanel.hidden = !open;
+    if (open) ensureModels();
 });
 
 // One tap to ask the questions people actually want answered
@@ -800,9 +1078,18 @@ new IntersectionObserver((entries, obs) => {
     if (entries[0].isIntersecting) { kickChatDeps(); obs.disconnect(); }
 }).observe(document.getElementById('chat'));
 
+let modelsPromise;
+const overlay = document.getElementById('loadingOverlay');
+overlay.classList.add('hidden');
+
+function ensureModels() {
+    if (!modelsPromise) modelsPromise = loadModels();
+    return modelsPromise;
+}
+
 async function loadModels() {
     const status = statusEl;
-    const overlay = document.getElementById('loadingOverlay');
+    overlay.classList.remove('hidden');
 
     try {
         const response = await fetch(`${WORKER_URL}/models`);
@@ -911,6 +1198,8 @@ function scrollChatToEnd() {
 }
 
 async function sendMessage() {
+    if (!userInputEl.value.trim()) return;
+    if (!document.getElementById('selectedModel').value) await ensureModels();
     const modelId = document.getElementById('selectedModel').value;
     const userInput = userInputEl.value.trim();
 
@@ -992,15 +1281,18 @@ async function streamReply(response, typing) {
     let text = '';
     let live = null;
     let queued = false;
+    let pending = '';
+    let textNode;
 
-    // Re-parsing markdown on every token is wasteful; repaint once per frame.
+    // Append only new text while streaming; format once at finalization.
     const paint = () => {
         if (queued || !live) return;
         queued = true;
         requestAnimationFrame(() => {
             queued = false;
             if (!live) return;
-            live.innerHTML = renderMarkdown(text);
+            textNode.appendData(pending);
+            pending = '';
             scrollChatToEnd();
         });
     };
@@ -1033,29 +1325,26 @@ async function streamReply(response, typing) {
                         typing.remove();
                         live = addMessage('assistant', '').querySelector('.msg-body');
                         live.classList.add('streaming');
+                        textNode = live.appendChild(document.createTextNode(''));
                     }
                     text += delta;
+                    pending += delta;
                     paint();
                 }
             }
         }
     } finally {
         reader.cancel().catch(() => { /* already closed */ });
+        typing.remove();
+        text = text.trim();
+        if (live) {
+            live.classList.remove('streaming');
+            live.innerHTML = renderMarkdown(text || t('chat.empty'));
+            live = null; // Ignore any queued frame after finalization.
+            scrollChatToEnd();
+        }
     }
-
-    typing.remove();
-    text = text.trim();
-
-    // Detach `live` before the final write so a queued frame cannot repaint it.
-    const finalEl = live;
-    live = null;
-    if (finalEl) {
-        finalEl.classList.remove('streaming');
-        finalEl.innerHTML = renderMarkdown(text || t('chat.empty'));
-        scrollChatToEnd();
-    } else {
-        addMessage('assistant', text || t('chat.empty'));
-    }
+    if (!textNode) addMessage('assistant', t('chat.empty'));
     return text;
 }
 
@@ -1069,7 +1358,7 @@ function addMessage(role, content) {
             <div class="msg-avatar" aria-hidden="true">${avatar}</div>
             <span class="msg-label">${label}</span>
         </div>
-        <div class="msg-body">${role === 'user' ? escapeHtml(content) : renderMarkdown(content)}</div>
+        <div class="msg-body">${role === 'user' ? escapeHtml(content) : (content ? renderMarkdown(content) : '')}</div>
     `;
     chatMessagesEl.appendChild(div);
     scrollChatToEnd();
@@ -1097,7 +1386,6 @@ function renderMarkdown(text) {
     }
 }
 
-loadModels();
 
 // ==================== COMMAND PALETTE (Ctrl/Cmd + K) ====================
 // Keyboard-first navigation. Every entry is something you can also reach by

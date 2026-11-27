@@ -1,36 +1,76 @@
 # Constantino Ferrucci
 
-Senior Generative AI Engineer (contractor via Tata Consultancy Services) working with Apple.
-Based in Montevideo, Uruguay. Open to international opportunities.
+Senior Generative AI Engineer, contractor at Apple via Tata Consultancy Services
+since May 2026. Based in Montevideo, Uruguay. Open to international roles.
 
 Site: https://constantinoferrucci.com.ar/
 GitHub: https://github.com/TinoFerrucci
 LinkedIn: https://www.linkedin.com/in/constantinoferrucci
-Email: constantinoferrucci@gmail.com
+
+## Experience
+
+- Senior Generative AI Engineer, Apple via Tata Consultancy Services (contractor),
+  May 2026 - present. Montevideo, Uruguay. GenAI automations for business and IT
+  use cases: agent workflows on LangChain, LangGraph and MCP, RAG pipelines over
+  vector databases, structured outputs, guardrails, and security and compliance
+  controls through rollout and monitoring.
+- AI Developer, Wiener lab., Jun 2023 - Apr 2026. Rosario, Argentina. LLM
+  assistants for technical support, customer service and product-knowledge
+  automation, grounded on internal documentation, technical manuals, PDFs,
+  relational databases and search engines. RAG pipelines with vector search,
+  metadata filtering and business rules, plus ingestion pipelines for medical and
+  technical data and integrations with internal APIs and authentication layers.
+- Auxiliar de Primera, Computer Vision, Universidad Nacional de Rosario,
+  Oct 2024 - present. Teaches Computer Vision in the Tecnicatura Universitaria en
+  Inteligencia Artificial, covering fundamentals and hands-on assignments in
+  Python, PyTorch, OpenCV and Hugging Face Transformers.
+- Auxiliar de Primera, NLP, Universidad Nacional de Rosario, Oct 2024 - May 2026.
+  NLP instruction on the same degree: fundamentals, embeddings, transformers and
+  applied language modelling.
+
+## Education
+
+- Licenciatura en Inteligencia Artificial, Universidad Nacional de Rosario,
+  2024 - present. In progress.
+- Tecnicatura Universitaria en Inteligencia Artificial, Universidad Nacional de
+  Rosario, 2022 - 2024. Covers deep learning, computer vision, NLP and industrial
+  applications.
+- Secondary technical degree in electromechanics, EETP N° 466 Manuel N. Savio,
+  Rosario, Argentina, 2014 - 2020.
 
 ## What I do
 
-Enterprise RAG architecture (semantic and hybrid search, metadata filtering,
-re-ranking, traceable ingestion pipelines), reliability and evaluation
-(hallucination mitigation, guardrails, evals, observability), and AI backend
-engineering (FastAPI microservices, containerized deploys, pgvector/Postgres).
+- Retrieval and evaluation: hybrid search, metadata filters and re-ranking over
+  technical manuals, PDFs and databases, with grounding checks and business-rule
+  filters that keep answers tied to verified records.
+- Agents, MCP and the backend behind them: tool-calling workflows on LangChain,
+  LangGraph and MCP that connect language models to APIs and databases, shipped
+  as FastAPI services with Docker for container deployment.
+- Computer vision and teaching: similarity search, supervised classification and
+  object detection; NDCG@10 evaluation of similarity search; Computer Vision at
+  UNR today and NLP previously.
 
 ## Flagship projects
 
-- SynergyX-AI — plain-language project briefs matched to interdisciplinary teams via embeddings, with explainable assignments. FastAPI + React + TypeScript. https://github.com/TinoFerrucci/SynergyX-AI
-- Datagentra — autonomous data analyst: 5-step agent (SQL generation with retries, summary, chart suggestion) behind a read-only SQL guard. OpenAI or local Ollama, Docker Compose. https://github.com/TinoFerrucci/Datagentra
-- fastapi-fastmcp-autogen — write logic once, get a REST API and MCP tools in both directions (MCP to FastAPI and FastAPI to MCP) with near-zero config and free Swagger docs. https://github.com/TinoFerrucci/fastapi-fastmcp-autogen
-- Dog breed recognition pipeline — three-stage computer-vision pipeline (embedding similarity, classification, detection) with async FastAPI 202 jobs, pgvector storage, and NDCG@10 scoring. Authored for teaching. https://github.com/TinoFerrucci/tuia-dog-recognition-app
-
-## Teaching
-
-Auxiliar de Primera in Computer Vision (and formerly NLP) at the Universidad
-Nacional de Rosario, Tecnicatura Universitaria en Inteligencia Artificial.
-Degree in AI (2022-2024), Licenciatura in progress. Secondary technical
-degree in electromechanics before moving into software.
+- SynergyX-AI - matches a free-text project brief to people with relevant skills
+  using embeddings, and explains why each person was selected. Python, FastAPI,
+  React, TypeScript, Vite, SQLite. https://github.com/TinoFerrucci/SynergyX-AI
+- Datagentra - five-step agent that generates SQL from a plain-English question,
+  executes it through a read-only guard that blocks INSERT, UPDATE, DELETE and
+  DROP, then summarizes the result and suggests a chart. Runs on OpenAI or local
+  Ollama with Docker Compose. https://github.com/TinoFerrucci/Datagentra
+- fastapi-fastmcp-autogen - serves the same handler as a REST endpoint and an MCP
+  tool in both directions, building Pydantic models dynamically and generating
+  Swagger docs. Python, FastAPI, FastMCP, Pydantic, Uvicorn.
+  https://github.com/TinoFerrucci/fastapi-fastmcp-autogen
+- Dog breed recognition pipeline - three stages (similarity search over pgvector
+  embeddings, supervised classification, object detection) behind async FastAPI
+  202 jobs, scored with NDCG@10, precision, recall and F1. Written for the
+  Computer Vision course at UNR. PyTorch, FastAPI, pgvector, Gradio, Docker.
+  https://github.com/TinoFerrucci/tuia-dog-recognition-app
 
 ## Contact
 
-Fastest via email (constantinoferrucci@gmail.com) or LinkedIn
-(https://www.linkedin.com/in/constantinoferrucci). The site also hosts an AI
-assistant that answers questions about this background.
+LinkedIn: https://www.linkedin.com/in/constantinoferrucci
+GitHub: https://github.com/TinoFerrucci
+The site also hosts an AI assistant that answers questions about this background.
