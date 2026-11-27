@@ -18,7 +18,7 @@ Live: <https://constantinoferrucci.com.ar/>
 ├── assets/
 │   ├── css/styles.css         All styles: theme tokens, layout, components
 │   ├── js/app.js              i18n (ES table), theme, chat client, animations
-│   ├── img/profile.jpg        Portrait used in #about (drop-in, optional)
+│   ├── img/profile.jpg        Portrait used in the hero
 │   ├── fonts/                 Self-hosted variable fonts (latin subset)
 │   ├── cv/                    Downloadable CV
 │   └── og/                    Social preview image + the page that renders it
@@ -28,6 +28,27 @@ Live: <https://constantinoferrucci.com.ar/>
 `index.html` and `CNAME` live at the root because GitHub Pages serves the
 site from there. `worker/` deploys separately to Cloudflare — do not touch
 it for site-only changes.
+
+## Design and content
+
+The site uses the blueprint design: hairline strokes, mono figure labels and
+schematic diagrams on a paper-like base, in both light and dark themes. The
+hero carries the portrait, role and current facts next to FIG 01, a reference
+agent architecture (LangGraph supervisor, retrieval/data/tool agents over A2A
+and MCP, an AutoGen review loop, and an OpenTelemetry feedback loop).
+
+Sections run in this order: hero (portrait, role, sentence, facts, CTAs,
+FIG 01) → About + What I do (three pillars, each with Evidence links) →
+Projects → Experience and education → Stack → Ask my assistant → Contact.
+Projects are four schematics — SynergyX-AI, Datagentra,
+fastapi-fastmcp-autogen and the dog breed recognition pipeline — followed by
+an archive strip of other repositories.
+
+All body copy is bilingual. English is in the HTML; every translatable node
+carries a `data-i18n` key, and Spanish lives in the `ES` table in `app.js`,
+applied at runtime by the EN/ES toggle. The in-page assistant talks to the
+Cloudflare Worker (`/models` and `/chat`), streams responses, and falls back
+to buffered JSON when streaming is unavailable.
 
 ## Local development
 
