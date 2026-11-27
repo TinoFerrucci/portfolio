@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <title>Constantino Ferrucci</title>
+  <rect width="32" height="32" fill="#0e0e0c"/>
+  <path fill="#f6f5f1" d="M22 2H2V30H30V26H6V6H22V2Z"/>
+  <rect x="26" y="2" width="4" height="4" fill="#f06a3c"/>
+  <path fill="#f6f5f1" d="M10 8H26V12H14V14H22V18H14V24H10V8Z"/>
+</svg>
