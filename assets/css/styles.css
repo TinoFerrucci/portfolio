@@ -1143,8 +1143,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 
 .hero {
-    padding-top: clamp(1.25rem, 3.2vw, 2.5rem);
-    padding-bottom: clamp(1.75rem, 4vw, 3rem);
+    padding-top: clamp(1rem, 2.4vw, 1.75rem);
+    padding-bottom: clamp(1.25rem, 2.8vw, 2.25rem);
 }
 
 .hero-frame {
@@ -1174,19 +1174,19 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .hero-copy {
     min-width: 0;
-    padding: clamp(1.25rem, 2.8vw, 2.25rem);
+    padding: clamp(1.25rem, 2.4vw, 1.75rem);
     border-right: 1px solid var(--line);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: var(--s-3);
+    gap: var(--s-2);
 }
 
 .hero-identity {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .hero-portrait {
@@ -1209,7 +1209,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hero-heading-group { min-width: 0; }
 
 .hero-name {
-    font-size: var(--text-display);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     font-weight: 700;
     line-height: 1.04;
     letter-spacing: -0.03em;
@@ -1310,7 +1310,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hero-diagram {
     min-width: 0;
     background: var(--bg-inset);
-    padding: clamp(1.25rem, 2.5vw, 1.75rem) 20px;
+    padding: clamp(1rem, 2vw, 1.375rem) 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
