@@ -33,7 +33,7 @@ rendered screenshots (1440 dark, 360/390 light) and the behavior list in `.revie
 | T6a | S5 | Herdr oc1: llms.txt, README | done | 32b1ed4 |
 | T6b | S4 | Claude: meta descriptions, JSON-LD, ES figure labels | done | 1544898 |
 | T6c | S4 | Herdr agy1: OG image redesign | done | 6b4596e |
-| T7 | S1 S3 | Static checks and screenshots done (EN/ES, dark/light, 390px); interactive checks (drawer, palette, live chat) pending owner test on localhost | partial | |
+| T7 | S1 S3 | Claude via chrome-devtools on localhost: EN/ES toggle, theme toggle, Ctrl+K palette, mobile drawer (Escape, backdrop, link), 0px overflow at 390, chat with mocked Worker (lazy /models, SSE streaming, buffered JSON fallback) | done | |
 
 Route note: the owner asked for Herdr agents; Claude reviews each diff, runs the checks and commits.
 
